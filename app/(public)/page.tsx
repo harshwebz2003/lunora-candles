@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { db } from '@/lib/db';
 import { AddToCartButton, TestimonialsSlider } from '@/components/public/HomeClientComponents';
 import ScrollReveal from '@/components/public/ScrollReveal';
+import CandleLab from '@/components/public/CandleLab';
 
 export const revalidate = 0;
 
@@ -133,6 +134,13 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* ── 3D CANDLE LAB ── */}
+      <section className="container mx-auto px-4 sm:px-6 py-16 border-t border-sand-200">
+        <ScrollReveal>
+          <CandleLab />
+        </ScrollReveal>
+      </section>
+
       {/* ── WHY LUNORA ── */}
       <section className="bg-sand-100 border-y border-sand-200 py-20 mt-16">
         <div className="container mx-auto px-4 sm:px-6">
@@ -164,8 +172,35 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* ── SCENT FINDER QUIZ BANNER ── */}
+      <section className="container mx-auto px-4 sm:px-6 py-6">
+        <ScrollReveal 
+          direction="up" 
+          className="relative rounded-3xl overflow-hidden bg-sand-200 border border-sand-300/40 p-8 sm:p-12 text-center space-y-6"
+        >
+          <div className="absolute inset-0 z-0 opacity-10 bg-[radial-gradient(#A8845A_1.5px,transparent_1.5px)] [background-size:16px_16px]" />
+          
+          <div className="relative z-10 max-w-xl mx-auto space-y-3">
+            <span className="label-caps text-terra-400">Not sure which candle to choose?</span>
+            <h2 className="text-display text-3xl sm:text-4xl text-ink-600 font-light leading-tight">
+              Find Your Signature <span className="text-serif-italic">Home Aura</span>
+            </h2>
+            <div className="divider-gold" />
+            <p className="font-ui text-xs sm:text-sm text-ink-400 leading-relaxed">
+              Answer 3 simple questions about your spaces and preferences, and our studio perfumers will curate the ideal wax fragrance match for you.
+            </p>
+          </div>
+          
+          <div className="relative z-10">
+            <Link href="/scent-finder" className="btn btn-primary">
+              Take Scent Quiz
+            </Link>
+          </div>
+        </ScrollReveal>
+      </section>
+
       {/* ── TESTIMONIALS + CARE TIP ── */}
-      <section className="container mx-auto px-4 sm:px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+      <section className="container mx-auto px-4 sm:px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
         <ScrollReveal 
           direction="left" 
           className="bg-white border border-sand-200 rounded-2xl p-8 sm:p-10 flex flex-col gap-6"
@@ -202,6 +237,41 @@ export default async function HomePage() {
           <div className="mt-auto pt-4">
             <Link href="/candle-care" className="btn btn-outline border-white/30 text-white hover:bg-white/10 w-full text-center">
               Full Candle Care Guide
+            </Link>
+          </div>
+        </ScrollReveal>
+      </section>
+
+      {/* ── CUSTOM EVENT FAVORS ── */}
+      <section className="container mx-auto px-4 sm:px-6 py-6">
+        <ScrollReveal 
+          direction="up" 
+          className="relative rounded-3xl overflow-hidden bg-ink-700 text-white p-8 sm:p-14 flex flex-col lg:flex-row gap-8 items-center justify-between"
+        >
+          <div className="absolute inset-0 z-0">
+            <Image 
+              src="/assets/632129514_17911290222317246_1212543984744105027_n.jpg"
+              alt="Custom wedding favors"
+              fill
+              className="object-cover opacity-20"
+            />
+          </div>
+          
+          <div className="relative z-10 max-w-xl space-y-4 text-left">
+            <span className="label-caps text-terra-300">Wedding &amp; Event Favors</span>
+            <h2 className="text-display text-3xl sm:text-4xl text-sand-100 font-light leading-tight">
+              Bespoke candle designs <br />
+              <span className="text-serif-italic text-terra-200">handcrafted for you</span>
+            </h2>
+            <div className="w-10 h-px bg-terra-300" />
+            <p className="font-ui text-xs sm:text-sm text-sand-300 leading-relaxed">
+              Create personalized candle favors with custom label designs, unique scents, and hand-stamped dust covers for weddings, private parties, corporate gifting, or hotel amenities in Sri Lanka.
+            </p>
+          </div>
+          
+          <div className="relative z-10">
+            <Link href="/custom-orders" className="btn btn-terra">
+              Inquire Custom Favors
             </Link>
           </div>
         </ScrollReveal>
