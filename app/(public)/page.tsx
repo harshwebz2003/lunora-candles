@@ -2,9 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { db } from '@/lib/db';
-import { AddToCartButton, TestimonialsSlider } from '@/components/public/HomeClientComponents';
+import { AddToCartButton, TestimonialsSlider, AnimatedHero } from '@/components/public/HomeClientComponents';
 import ScrollReveal from '@/components/public/ScrollReveal';
 import CandleLab from '@/components/public/CandleLab';
+import TextReveal from '@/components/public/TextReveal';
 
 export const revalidate = 0;
 
@@ -58,32 +59,14 @@ export default async function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-ink-700/80 via-ink-700/20 to-transparent" />
         </div>
 
-        <div className="relative z-10 text-center pb-20 px-6 max-w-3xl mx-auto animate-fade-in">
-          <span className="label-caps text-sand-300 mb-4 block">Galle, Sri Lanka — Est. 2022</span>
-          <h1 className="text-display text-5xl sm:text-7xl font-light text-white leading-tight mb-4">
-            Scents that tell<br />
-            <span className="text-serif-italic text-terra-200">your story</span>
-          </h1>
-          <div className="divider-gold mb-6" />
-          <p className="font-ui text-sm text-sand-200 leading-relaxed max-w-xl mx-auto mb-8">
-            Handcrafted in small batches using 100% natural soy wax, wooden wicks, and botanically inspired fragrance oils from the coast of Galle.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="/shop" className="btn btn-terra">
-              Explore Collections
-            </Link>
-            <Link href="/custom-orders" className="btn btn-outline border-white/50 text-white hover:bg-white/10">
-              Custom Favors
-            </Link>
-          </div>
-        </div>
+        <AnimatedHero />
       </section>
 
       {/* ── COLLECTIONS HEADING & GRID ── */}
       <section className="container mx-auto px-4 sm:px-6 space-y-12">
         <ScrollReveal>
           <div className="text-center space-y-2">
-            <h2 className="text-display text-4xl sm:text-5xl text-ink-600 tracking-wide">Collections</h2>
+            <TextReveal as="h2" text="Collections" className="text-display text-4xl sm:text-5xl text-ink-600 tracking-wide" />
             <div className="divider-gold" />
             <p className="label-caps text-ink-300">Handpicked fragrance selections</p>
           </div>
@@ -148,11 +131,11 @@ export default async function HomePage() {
       </section>
 
       {/* ── WHY LUNORA ── */}
-      <section className="bg-sand-100 border-y border-sand-200 py-20">
+      <section className="bg-peach-champagne border-y border-border-subtle/50 py-20">
         <div className="container mx-auto px-4 sm:px-6 space-y-14">
           <ScrollReveal>
             <div className="text-center space-y-2">
-              <h2 className="text-display text-4xl sm:text-5xl text-ink-600 tracking-wide">Why Lunora</h2>
+              <TextReveal as="h2" text="Why Lunora" className="text-display text-4xl sm:text-5xl text-ink-600 tracking-wide" />
               <div className="divider-gold" />
               <p className="label-caps text-ink-300">Handcrafted pure home fragrance</p>
             </div>
@@ -186,7 +169,7 @@ export default async function HomePage() {
       <section className="container mx-auto px-4 sm:px-6">
         <ScrollReveal 
           direction="up" 
-          className="relative rounded-3xl overflow-hidden bg-sand-200 border border-sand-300/40 p-8 sm:p-14 text-center space-y-6"
+          className="relative rounded-3xl overflow-hidden bg-peach-champagne border border-border-subtle/50 p-8 sm:p-14 text-center space-y-6"
         >
           <div className="absolute inset-0 z-0 opacity-10 bg-[radial-gradient(#A8845A_1.5px,transparent_1.5px)] [background-size:16px_16px]" />
           
@@ -249,7 +232,7 @@ export default async function HomePage() {
             </div>
             
             <div className="pt-4">
-              <Link href="/candle-care" className="btn btn-outline border-white/30 text-white hover:bg-white/10 w-full text-center">
+              <Link href="/candle-care" className="btn btn-outline border-white/30 !text-white hover:!text-white hover:bg-white/10 w-full text-center">
                 Full Candle Care Guide
               </Link>
             </div>
@@ -298,7 +281,7 @@ export default async function HomePage() {
           <div className="space-y-12">
             <ScrollReveal>
               <div className="text-center space-y-2">
-                <h2 className="text-display text-4xl sm:text-5xl text-ink-600 tracking-wide">Studio Journals</h2>
+                <TextReveal as="h2" text="Studio Journals" className="text-display text-4xl sm:text-5xl text-ink-600 tracking-wide" />
                 <div className="divider-gold" />
                 <p className="label-caps text-ink-300">Insights into scent design &amp; care</p>
               </div>

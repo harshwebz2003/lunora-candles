@@ -479,3 +479,176 @@
   color: var(--color-terra-200);
   border-left: 3px solid var(--color-terra-300);
 }
+
+/* ─────────────────────────────────────────────
+   Peach Champagne Gradient
+   ───────────────────────────────────────────── */
+.bg-peach-champagne {
+  background: linear-gradient(135deg, #DFF7FF 0%, #FFD3B6 100%) !important;
+}
+
+/* ─────────────────────────────────────────────
+   Split Text Animations
+   ───────────────────────────────────────────── */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #121212;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    overflow: hidden;
+}
+
+.split-text-container {
+    display: flex;
+    font-size: 5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    overflow: hidden;
+}
+
+.text-part {
+    display: inline-block;
+    position: relative;
+    transform: translateX(0);
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+.text-part.left {
+    transform: translateX(-200%);
+    animation-name: slide-in-left;
+}
+
+.text-part.right {
+    transform: translateX(200%);
+    animation-name: slide-in-right;
+}
+
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* ─────────────────────────────────────────────
+   Neumorphic & Glassmorphic Header Components
+   ───────────────────────────────────────────── */
+
+.neumorphic-navbar-container {
+  background: rgba(253, 247, 239, 0.85);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 10px 30px -10px rgba(126, 128, 82, 0.08), 
+    0 1px 3px rgba(0, 0, 0, 0.02),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  border-radius: 9999px;
+  transition: all var(--transition-fast) ease;
+}
+
+.neumorphic-active-pill {
+  background: rgba(212, 198, 173, 0.25) !important;
+  box-shadow: 
+    inset 2px 2px 5px rgba(126, 128, 82, 0.12), 
+    inset -2px -2px 5px rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(126, 128, 82, 0.05) !important;
+  color: var(--color-ink-600) !important;
+}
+
+.neumorphic-inactive-pill {
+  color: var(--color-ink-400);
+  border: 1px solid transparent;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.neumorphic-inactive-pill:hover {
+  color: var(--color-ink-600);
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    2px 2px 6px rgba(126, 128, 82, 0.05), 
+    -2px -2px 6px rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Small round action buttons */
+.neumorphic-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--color-ink-400);
+  transition: all 0.25s ease;
+}
+
+.neumorphic-icon-btn:hover {
+  color: var(--color-ink-600);
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    2px 2px 6px rgba(126, 128, 82, 0.05), 
+    -2px -2px 6px rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Specular 3D Glowing Blue Sphere */
+@keyframes sphere-pulse {
+  0%, 100% {
+    box-shadow: 
+      inset -3px -3px 6px rgba(0, 0, 0, 0.35),
+      inset 3px 3px 6px rgba(255, 255, 255, 0.7),
+      0 0 10px rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    box-shadow: 
+      inset -3px -3px 6px rgba(0, 0, 0, 0.35),
+      inset 3px 3px 6px rgba(255, 255, 255, 0.7),
+      0 0 16px rgba(59, 130, 246, 0.7);
+  }
+}
+
+.blue-sphere-logo {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #93c5fd 0%, #3b82f6 40%, #1d4ed8 85%, #172554 100%);
+  box-shadow: 
+    inset -3px -3px 6px rgba(0, 0, 0, 0.35),
+    inset 3px 3px 6px rgba(255, 255, 255, 0.7),
+    0 0 10px rgba(59, 130, 246, 0.4);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  animation: sphere-pulse 3s infinite ease-in-out;
+}
+
+.blue-sphere-logo::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 30%;
+  height: 30%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+}
+

@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { db } from '@/lib/db';
+import TextReveal from '@/components/public/TextReveal';
 
 export const revalidate = 0;
 
@@ -14,7 +15,7 @@ export default async function GalleryPage() {
       
       {/* Header Banner */}
       <div className="text-center max-w-xl mx-auto space-y-3">
-        <h1 className="text-display text-4xl sm:text-5xl font-light text-ink-600">Studio Gallery</h1>
+        <TextReveal as="h1" text="Studio Gallery" className="text-display text-4xl sm:text-5xl font-light text-ink-600" />
         <p className="text-xs font-ui uppercase tracking-widest text-terra-400">Glimpses of Hand-poured Artistry in Galle</p>
         <div className="divider-gold" />
       </div>

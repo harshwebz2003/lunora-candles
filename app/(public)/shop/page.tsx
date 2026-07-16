@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { db } from '@/lib/db';
 import ShopFilters from '@/components/public/ShopFilters';
 import ScrollReveal from '@/components/public/ScrollReveal';
+import TextReveal from '@/components/public/TextReveal';
 import { AddToCartButton } from '@/components/public/HomeClientComponents';
 
 export const revalidate = 0;
@@ -72,7 +73,7 @@ export default async function ShopPage({ searchParams }: PageProps) {
 
       {/* ── Page Heading ── */}
       <section className="pt-14 pb-8 text-center">
-        <h1 className="text-display text-4xl sm:text-5xl text-ink-600 tracking-wide">Collections</h1>
+        <TextReveal as="h1" text="Collections" className="text-display text-4xl sm:text-5xl text-ink-600 tracking-wide" />
         <div className="divider-gold mt-3" />
         <p className="label-caps mt-2 text-ink-300">
           {products.length} candle{products.length !== 1 ? 's' : ''} available

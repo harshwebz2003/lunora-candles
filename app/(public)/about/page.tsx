@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from '@/components/public/ScrollReveal';
 import { motion, AnimatePresence } from 'framer-motion';
+import TextReveal from '@/components/public/TextReveal';
 
 const SLIDESHOW_IMAGES = [
   '/assets/553805204_1339286811541445_7449795635161896691_n.jpg',
@@ -81,7 +82,7 @@ export default function AboutPage() {
         </div>
         <div className="relative z-10 text-center space-y-3 px-6">
           <span className="label-caps text-sand-400 block">Galle, Sri Lanka</span>
-          <h1 className="text-display text-4xl sm:text-5xl font-light text-white">Our Story &amp; Studio</h1>
+          <TextReveal as="h1" text="Our Story & Studio" className="text-display text-4xl sm:text-5xl font-light text-white" />
           <div className="divider-gold" />
           <p className="label-caps text-sand-300">Poured with purpose. Crafted with love.</p>
         </div>
@@ -93,10 +94,7 @@ export default function AboutPage() {
           <ScrollReveal direction="left">
             <div className="space-y-6">
               <span className="label-caps text-terra-400">How it began</span>
-              <h2 className="text-display text-3xl sm:text-4xl text-ink-600 leading-tight">
-                How Lunora Candles<br />
-                <span className="text-serif-italic text-terra-300">Began Its Journey</span>
-              </h2>
+              <TextReveal as="h2" text="How Lunora Candles Began Its Journey" className="text-display text-3xl sm:text-4xl text-ink-600 leading-tight" />
               <div className="w-10 h-px bg-terra-300" />
               <p className="font-ui text-sm text-ink-400 leading-relaxed">
                 Founded along the historic coast of Galle, Sri Lanka, Lunora Candles was born out of a deep passion for natural home aromatics and artisanal design. We wanted to create home scents that were not only deeply luxurious — but also clean-burning and safe for every family.
@@ -116,12 +114,12 @@ export default function AboutPage() {
       </section>
 
       {/* ── Meet the Founder ── */}
-      <section className="bg-sand-100 border-y border-sand-200 py-20">
+      <section className="bg-peach-champagne border-y border-border-subtle/50 py-20">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollReveal>
             <div className="text-center mb-14 space-y-2">
               <span className="label-caps text-terra-400">The visionary behind Lunora</span>
-              <h2 className="text-display text-3xl sm:text-4xl text-ink-600">Meet the Founder</h2>
+              <TextReveal as="h2" text="Meet the Founder" className="text-display text-3xl sm:text-4xl text-ink-600" />
               <div className="divider-gold" />
             </div>
           </ScrollReveal>
@@ -149,7 +147,7 @@ export default function AboutPage() {
             <ScrollReveal direction="right" delay={0.25}>
               <div className="space-y-6">
                 <div className="space-y-1">
-                  <h3 className="text-display text-4xl text-ink-600">Kalana Udara</h3>
+                  <TextReveal as="h3" text="Kalana Udara" className="text-display text-4xl text-ink-600" />
                   <p className="label-caps text-terra-400">Founder &amp; CEO · Lunora Candles</p>
                 </div>
 
@@ -193,7 +191,7 @@ export default function AboutPage() {
       <section className="container mx-auto px-4 sm:px-6 py-20">
         <ScrollReveal>
           <div className="text-center mb-14 space-y-2">
-            <h2 className="text-display text-3xl sm:text-4xl text-ink-600">Studio Philosophy</h2>
+            <TextReveal as="h2" text="Studio Philosophy" className="text-display text-3xl sm:text-4xl text-ink-600" />
             <div className="divider-gold" />
           </div>
         </ScrollReveal>
@@ -231,7 +229,7 @@ export default function AboutPage() {
       <section className="bg-ink-600 py-16">
         <ScrollReveal>
           <div className="container mx-auto px-4 sm:px-6 text-center max-w-2xl space-y-6">
-            <h2 className="text-display text-3xl font-light text-white">Visit Our Studio</h2>
+            <TextReveal as="h2" text="Visit Our Studio" className="text-display text-3xl font-light text-white" />
             <div className="w-10 h-px bg-terra-300 mx-auto" />
             <p className="font-ui text-sm text-sand-300 leading-relaxed">
               We love meeting fellow fragrance lovers. Stop by our Dowata, Galle studio to browse fragrances, experience live candle pours, or design your own custom scents.
@@ -240,7 +238,7 @@ export default function AboutPage() {
               <Link href="/contact" className="btn btn-terra">
                 Get Directions
               </Link>
-              <Link href="/shop" className="btn btn-outline border-white/30 text-white hover:bg-white/10">
+              <Link href="/shop" className="btn btn-outline border-white/30 !text-white hover:!text-white hover:bg-white/10">
                 Shop Online
               </Link>
             </div>

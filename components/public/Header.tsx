@@ -57,102 +57,31 @@ export default function Header() {
   return (
     <>
       {/* ── Top Header ── */}
-      <header className="sticky top-0 z-40 w-full bg-sand-50/95 backdrop-blur-sm border-b border-sand-200">
-        <div className="container mx-auto flex h-16 items-center justify-between gap-4">
-
-          {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
-            <div className="relative h-8 w-8 rounded-full overflow-hidden border border-sand-300">
-              <Image src="/logo.jpg" alt="Lunora" fill className="object-cover" priority />
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-display text-sm tracking-[0.25em] font-semibold text-ink-600 uppercase">Lunora</span>
-              <span className="font-ui text-[8px] tracking-[0.3em] text-terra-400 font-medium uppercase">Candles</span>
-            </div>
-          </Link>
-
-          {/* Desktop Nav — Centered */}
-          <nav className="hidden lg:flex items-center gap-7 flex-1 justify-center">
-            {NAV_LINKS.map((link) => {
-              const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`font-ui text-[11px] uppercase tracking-[0.14em] font-medium transition-colors pb-0.5 ${
-                    isActive
-                      ? 'text-ink-600 border-b border-ink-500'
-                      : 'text-ink-400 hover:text-ink-600'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Action Icons */}
-          <div className="flex items-center gap-2 flex-shrink-0">
-            <Link
-              href="/shop"
-              className="p-2 text-ink-400 hover:text-ink-600 transition-colors hidden lg:flex"
-              aria-label="Search"
-            >
-              <MagnifyingGlassIcon className="h-4.5 w-4.5" />
-            </Link>
-            <Link
-              href="/shop"
-              className="p-2 text-ink-400 hover:text-ink-600 transition-colors hidden lg:flex"
-              aria-label="Wishlist"
-            >
-              <HeartIcon className="h-4.5 w-4.5" />
-            </Link>
-            <Link
-              href="/admin"
-              className="p-2 text-ink-400 hover:text-ink-600 transition-colors hidden lg:flex"
-              aria-label="Account"
-            >
-              <UserIcon className="h-4.5 w-4.5" />
+      <header className="sticky top-0 z-40 w-full bg-transparent py-4 px-4 sm:px-6 pointer-events-none">
+        <div className={`mx-auto max-w-6xl w-full flex flex-col gap-4 p-3 md:p-3 px-6 neumorphic-navbar-container pointer-events-auto transition-all duration-300 ${isMobileMenuOpen ? 'rounded-[2rem]' : ''}`}>
+          
+          <div className="flex w-full items-center justify-between">
+            {/* Brand Logo */}
+            <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
+              <div className="blue-sphere-logo" />
+              <div className="flex flex-col leading-none">
+                <span className="font-display text-sm tracking-[0.25em] font-semibold text-ink-600 uppercase">Lunora</span>
+                <span className="font-ui text-[8px] tracking-[0.3em] text-terra-400 font-medium uppercase">Candles</span>
+              </div>
             </Link>
 
-            {/* Cart Button */}
-            <button
-              onClick={() => setIsCartOpen(true)}
-              className="relative p-2 text-ink-400 hover:text-ink-600 transition-colors"
-              aria-label="Cart"
-            >
-              <ShoppingBagIcon className="h-5 w-5" />
-              {cartCount > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 h-4 w-4 flex items-center justify-center rounded-full bg-terra-300 text-[9px] font-bold text-white font-ui">
-                  {cartCount}
-                </span>
-              )}
-            </button>
-
-            {/* Mobile Toggle */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-ink-400 hover:text-ink-600 transition-colors lg:hidden"
-              aria-label="Menu"
-            >
-              {isMobileMenuOpen ? <XMarkIcon className="h-5 w-5" /> : <Bars3Icon className="h-5 w-5" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Drawer */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-sand-200 bg-sand-50 py-5 px-6 animate-fade-in">
-            <nav className="flex flex-col gap-1">
+            {/* Desktop Nav — Centered */}
+            <nav className="hidden lg:flex items-center gap-2 flex-1 justify-center">
               {NAV_LINKS.map((link) => {
-                const isActive = pathname === link.href;
+                const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`font-ui text-xs uppercase tracking-widest py-2.5 px-3 rounded-lg transition-all ${
-                      isActive ? 'bg-terra-100 text-terra-500' : 'text-ink-500 hover:bg-sand-100'
+                    className={`font-ui text-[10px] uppercase tracking-[0.15em] font-semibold px-4.5 py-1.5 rounded-full transition-all duration-300 ${
+                      isActive
+                        ? 'neumorphic-active-pill'
+                        : 'neumorphic-inactive-pill'
                     }`}
                   >
                     {link.label}
@@ -160,8 +89,82 @@ export default function Header() {
                 );
               })}
             </nav>
+
+            {/* Action Icons */}
+            <div className="flex items-center gap-2 flex-shrink-0">
+              <Link
+                href="/shop"
+                className="h-8 w-8 neumorphic-icon-btn hidden lg:flex"
+                aria-label="Search"
+              >
+                <MagnifyingGlassIcon className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/shop"
+                className="h-8 w-8 neumorphic-icon-btn hidden lg:flex"
+                aria-label="Wishlist"
+              >
+                <HeartIcon className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/admin"
+                className="h-8 w-8 neumorphic-icon-btn hidden lg:flex"
+                aria-label="Account"
+              >
+                <UserIcon className="h-4 w-4" />
+              </Link>
+
+              {/* Cart Button */}
+              <button
+                onClick={() => setIsCartOpen(true)}
+                className={`relative h-8 w-8 neumorphic-icon-btn ${cartCount > 0 ? 'neumorphic-active-pill' : ''}`}
+                aria-label="Cart"
+              >
+                <ShoppingBagIcon className="h-4.5 w-4.5" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 h-4.5 w-4.5 flex items-center justify-center rounded-full bg-terra-400 text-[9px] font-bold text-white font-ui shadow-sm">
+                    {cartCount}
+                  </span>
+                )}
+              </button>
+
+              {/* Mobile Toggle */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="h-8 w-8 neumorphic-icon-btn lg:hidden"
+                aria-label="Menu"
+              >
+                {isMobileMenuOpen ? <XMarkIcon className="h-4.5 w-4.5" /> : <Bars3Icon className="h-4.5 w-4.5" />}
+              </button>
+            </div>
           </div>
-        )}
+
+          {/* Mobile Drawer (Inside the expanded pill) */}
+          {isMobileMenuOpen && (
+            <div className="lg:hidden w-full border-t border-sand-200/50 pt-3 px-2 animate-fade-in">
+              <nav className="flex flex-col gap-1.5 pb-2">
+                {NAV_LINKS.map((link) => {
+                  const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`font-ui text-[11px] uppercase tracking-wider py-2.5 px-4 rounded-full transition-all ${
+                        isActive 
+                          ? 'neumorphic-active-pill font-semibold' 
+                          : 'neumorphic-inactive-pill hover:bg-white/40'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
+              </nav>
+            </div>
+          )}
+
+        </div>
       </header>
 
       {/* ── Cart Drawer ── */}
