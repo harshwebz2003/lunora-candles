@@ -69,7 +69,7 @@ export default function CustomOrderForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label className="block text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold mb-2">
+          <label className="block text-[10px] font-ui uppercase tracking-wider text-ink-400 font-bold mb-2">
             Your Name *
           </label>
           <input
@@ -82,7 +82,7 @@ export default function CustomOrderForm() {
           />
         </div>
         <div>
-          <label className="block text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold mb-2">
+          <label className="block text-[10px] font-ui uppercase tracking-wider text-ink-400 font-bold mb-2">
             Email Address *
           </label>
           <input
@@ -98,7 +98,7 @@ export default function CustomOrderForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label className="block text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold mb-2">
+          <label className="block text-[10px] font-ui uppercase tracking-wider text-ink-400 font-bold mb-2">
             Phone / WhatsApp Number
           </label>
           <input
@@ -110,13 +110,13 @@ export default function CustomOrderForm() {
           />
         </div>
         <div>
-          <label className="block text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold mb-2">
+          <label className="block text-[10px] font-ui uppercase tracking-wider text-ink-400 font-bold mb-2">
             Event / Order Type
           </label>
           <select
             value={eventType}
             onChange={(e) => setEventType(e.target.value)}
-            className="input text-xs bg-cream-50"
+            className="input text-xs bg-sand-50"
           >
             <option value="wedding">Wedding Favors</option>
             <option value="corporate">Corporate Gifting</option>
@@ -129,13 +129,13 @@ export default function CustomOrderForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label className="block text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold mb-2">
+          <label className="block text-[10px] font-ui uppercase tracking-wider text-ink-400 font-bold mb-2">
             Estimated Quantity
           </label>
           <select
             value={qty}
             onChange={(e) => setQty(e.target.value)}
-            className="input text-xs bg-cream-50"
+            className="input text-xs bg-sand-50"
           >
             <option value="20-50">20 to 50 jars</option>
             <option value="50-100">50 to 100 jars</option>
@@ -144,13 +144,13 @@ export default function CustomOrderForm() {
           </select>
         </div>
         <div>
-          <label className="block text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold mb-2">
+          <label className="block text-[10px] font-ui uppercase tracking-wider text-ink-400 font-bold mb-2">
             Preferred Scent Category
           </label>
           <select
             value={scent}
             onChange={(e) => setScent(e.target.value)}
-            className="input text-xs bg-cream-50"
+            className="input text-xs bg-sand-50"
           >
             <option value="lavender">Calming & Floral (Lavender, Rose)</option>
             <option value="vanilla">Warm & Sweet (Vanilla, Amberwood)</option>
@@ -162,7 +162,7 @@ export default function CustomOrderForm() {
       </div>
 
       <div>
-        <label className="block text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold mb-2">
+        <label className="block text-[10px] font-ui uppercase tracking-wider text-ink-400 font-bold mb-2">
           Design Details & Customization Requests *
         </label>
         <textarea

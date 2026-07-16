@@ -31,17 +31,17 @@ export default function ProductDetailClient({
     <div className="space-y-4">
       <div className="flex items-center gap-4">
         {/* Quantity Select */}
-        <div className="flex items-center border border-cream-300 rounded-lg overflow-hidden bg-cream-50 h-12">
+        <div className="flex items-center border border-sand-300 rounded-lg overflow-hidden bg-sand-50 h-12">
           <button
             onClick={() => setQty(Math.max(1, qty - 1))}
-            className="p-3 px-4 text-charcoal-500 hover:bg-cream-200"
+            className="p-3 px-4 text-ink-500 hover:bg-sand-200"
           >
             <MinusIcon className="h-4 w-4" />
           </button>
-          <span className="px-6 text-sm font-bold text-charcoal-600">{qty}</span>
+          <span className="px-6 text-sm font-bold text-ink-600">{qty}</span>
           <button
             onClick={() => setQty(qty + 1)}
-            className="p-3 px-4 text-charcoal-500 hover:bg-cream-200"
+            className="p-3 px-4 text-ink-500 hover:bg-sand-200"
           >
             <PlusIcon className="h-4 w-4" />
           </button>

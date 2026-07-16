@@ -70,7 +70,7 @@ export function TestimonialsSlider({ testimonials }: { testimonials: Testimonial
     <div className="flex flex-col justify-between flex-1 gap-6">
       <div className="space-y-4">
         {/* Rating Stars */}
-        <div className="flex gap-1 text-gold-400">
+        <div className="flex gap-1 text-terra-400">
           {Array.from({ length: active.rating }).map((_, i) => (
             <span key={i} className="text-lg">★</span>
           ))}

@@ -59,7 +59,7 @@ export default function ContactForm() {
       )}
 
       <div>
-        <label className="block text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold mb-1">
+        <label className="block text-[10px] font-ui uppercase tracking-wider text-ink-400 font-bold mb-1">
           Your Name *
         </label>
         <input
@@ -74,7 +74,7 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold mb-1">
+          <label className="block text-[10px] font-ui uppercase tracking-wider text-ink-400 font-bold mb-1">
             Email Address *
           </label>
           <input
@@ -87,7 +87,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label className="block text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold mb-1">
+          <label className="block text-[10px] font-ui uppercase tracking-wider text-ink-400 font-bold mb-1">
             Phone / WhatsApp Number
           </label>
           <input
@@ -101,7 +101,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold mb-1">
+        <label className="block text-[10px] font-ui uppercase tracking-wider text-ink-400 font-bold mb-1">
           Your Message *
         </label>
         <textarea

@@ -33,33 +33,33 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
             switch (block.level) {
               case 1:
                 return (
-                  <h1 key={idx} className="text-display text-3xl sm:text-4xl text-charcoal-700 mt-8 mb-4">
+                  <h1 key={idx} className="text-display text-3xl sm:text-4xl text-ink-600 mt-8 mb-4">
                     {block.children}
                   </h1>
                 );
               case 3:
                 return (
-                  <h3 key={idx} className="text-display text-xl sm:text-2xl text-charcoal-700 mt-6 mb-3">
+                  <h3 key={idx} className="text-display text-xl sm:text-2xl text-ink-600 mt-6 mb-3">
                     {block.children}
                   </h3>
                 );
               case 4:
                 return (
-                  <h4 key={idx} className="text-display text-lg sm:text-xl text-charcoal-700 mt-4 mb-2">
+                  <h4 key={idx} className="text-display text-lg sm:text-xl text-ink-600 mt-4 mb-2">
                     {block.children}
                   </h4>
                 );
               case 2:
               default:
                 return (
-                  <h2 key={idx} className="text-display text-2xl sm:text-3xl text-charcoal-700 mt-8 mb-4">
+                  <h2 key={idx} className="text-display text-2xl sm:text-3xl text-ink-600 mt-8 mb-4">
                     {block.children}
                   </h2>
                 );
             }
           }
           return (
-            <p key={idx} className="text-xs sm:text-sm text-charcoal-500 leading-relaxed font-body mb-4">
+            <p key={idx} className="text-xs sm:text-sm text-ink-500 leading-relaxed font-body mb-4">
               {block.children}
             </p>
           );
@@ -71,7 +71,7 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
 
     return (
       <div 
-        className="text-xs sm:text-sm text-charcoal-500 leading-relaxed font-body whitespace-pre-line"
+        className="text-xs sm:text-sm text-ink-500 leading-relaxed font-body whitespace-pre-line"
         dangerouslySetInnerHTML={{ __html: blog.content }}
       />
     );
@@ -82,20 +82,20 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
       
       {/* Back Link */}
       <div>
-        <Link href="/blog" className="text-xs font-ui uppercase tracking-widest text-charcoal-400 hover:text-gold-400 transition-colors">
+        <Link href="/blog" className="text-xs font-ui uppercase tracking-widest text-ink-400 hover:text-terra-400 transition-colors">
           &larr; Back to Journal
         </Link>
       </div>
 
       {/* Article Header */}
-      <div className="space-y-4 border-b border-cream-200 pb-8">
-        <span className="text-[10px] font-ui uppercase tracking-wider text-gold-400 font-bold">
+      <div className="space-y-4 border-b border-sand-200 pb-8">
+        <span className="text-[10px] font-ui uppercase tracking-wider text-terra-400 font-bold">
           {new Date(blog.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
         </span>
-        <h1 className="text-display text-3xl sm:text-5xl font-light text-charcoal-700 leading-tight">
+        <h1 className="text-display text-3xl sm:text-5xl font-light text-ink-600 leading-tight">
           {blog.title}
         </h1>
-        <div className="text-[10px] font-ui text-charcoal-400 uppercase tracking-widest pt-2">
+        <div className="text-[10px] font-ui text-ink-400 uppercase tracking-widest pt-2">
           By {blog.author.name || 'Admin'}
         </div>
       </div>

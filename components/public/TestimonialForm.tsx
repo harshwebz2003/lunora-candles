@@ -56,7 +56,7 @@ export default function TestimonialForm() {
       )}
 
       <div>
-        <label className="block text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold mb-1">
+        <label className="block text-[10px] font-ui uppercase tracking-wider text-ink-400 font-bold mb-1">
           Your Name *
         </label>
         <input
@@ -70,13 +70,13 @@ export default function TestimonialForm() {
       </div>
 
       <div>
-        <label className="block text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold mb-1">
+        <label className="block text-[10px] font-ui uppercase tracking-wider text-ink-400 font-bold mb-1">
           Rating (1 to 5 Stars) *
         </label>
         <select
           value={rating}
           onChange={(e) => setRating(Number(e.target.value))}
-          className="input text-xs bg-cream-50"
+          className="input text-xs bg-sand-50"
         >
           <option value={5}>⭐⭐⭐⭐⭐ (5 - Exceptional)</option>
           <option value={4}>⭐⭐⭐⭐ (4 - Very Good)</option>
@@ -87,7 +87,7 @@ export default function TestimonialForm() {
       </div>
 
       <div>
-        <label className="block text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold mb-1">
+        <label className="block text-[10px] font-ui uppercase tracking-wider text-ink-400 font-bold mb-1">
           Your Review / Message *
         </label>
         <textarea

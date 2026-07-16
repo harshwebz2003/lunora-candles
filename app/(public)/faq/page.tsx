@@ -34,20 +34,20 @@ export default function FAQPage() {
       
       {/* Header Banner */}
       <div className="text-center max-w-xl mx-auto space-y-3">
-        <h1 className="text-display text-4xl sm:text-5xl font-light text-charcoal-700">Frequently Asked Questions</h1>
-        <p className="text-xs font-ui uppercase tracking-widest text-gold-400">Everything you need to know about our craft and orders</p>
+        <h1 className="text-display text-4xl sm:text-5xl font-light text-ink-600">Frequently Asked Questions</h1>
+        <p className="text-xs font-ui uppercase tracking-widest text-terra-400">Everything you need to know about our craft and orders</p>
         <div className="divider-gold" />
       </div>
 
       {/* Accordions */}
-      <div className="bg-white border border-cream-200 p-6 sm:p-8 rounded-2xl shadow-sm divide-y divide-cream-200">
+      <div className="bg-white border border-sand-200 p-6 sm:p-8 rounded-2xl shadow-sm divide-y divide-sand-200">
         {FAQS.map((faq, idx) => (
           <details key={idx} className="group py-5 cursor-pointer outline-none">
-            <summary className="flex justify-between items-center font-display text-base sm:text-lg font-semibold text-charcoal-700 list-none outline-none">
+            <summary className="flex justify-between items-center font-display text-base sm:text-lg font-semibold text-ink-600 list-none outline-none">
               <span>{faq.q}</span>
-              <span className="text-gold-400 group-open:rotate-180 transition-transform duration-200">&darr;</span>
+              <span className="text-terra-400 group-open:rotate-180 transition-transform duration-200">&darr;</span>
             </summary>
-            <p className="text-xs sm:text-sm text-charcoal-400 leading-relaxed font-body mt-3 pl-1 group-open:animate-fade-in">
+            <p className="text-xs sm:text-sm text-ink-400 leading-relaxed font-body mt-3 pl-1 group-open:animate-fade-in">
               {faq.a}
             </p>
           </details>
@@ -56,7 +56,7 @@ export default function FAQPage() {
 
       {/* Support CTA */}
       <div className="text-center space-y-4 pt-6">
-        <p className="text-xs text-charcoal-400 font-body">Still have a question? We are happy to help.</p>
+        <p className="text-xs text-ink-400 font-body">Still have a question? We are happy to help.</p>
         <Link href="/contact" className="btn btn-primary text-xs tracking-widest uppercase">
           Contact Our Team
         </Link>

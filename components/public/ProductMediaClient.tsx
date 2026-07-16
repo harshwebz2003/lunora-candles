@@ -8,9 +8,9 @@ import dynamic from 'next/dynamic';
 const Candle3D = dynamic(() => import('./Candle3D'), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[400px] rounded-2xl bg-cream-100/60 border border-cream-200 flex flex-col items-center justify-center space-y-4">
+    <div className="w-full h-[400px] rounded-2xl bg-sand-100/60 border border-sand-200 flex flex-col items-center justify-center space-y-4">
       <div className="skeleton w-12 h-12 rounded-full" />
-      <span className="text-[10px] font-ui uppercase tracking-widest text-gold-400 font-bold animate-pulse">
+      <span className="text-[10px] font-ui uppercase tracking-widest text-terra-400 font-bold animate-pulse">
         Initializing 3D Canvas...
       </span>
     </div>
@@ -41,13 +41,13 @@ export default function ProductMediaClient({ images, title, fragrance }: Product
   return (
     <div className="space-y-6">
       {/* Tab Switcher */}
-      <div className="flex gap-2 border-b border-cream-200 pb-3">
+      <div className="flex gap-2 border-b border-sand-200 pb-3">
         <button
           onClick={() => setViewMode('photos')}
           className={`px-4 py-1.5 text-[10px] font-ui uppercase tracking-wider font-bold rounded-lg transition-all ${
             viewMode === 'photos'
-              ? 'bg-charcoal-700 text-white shadow-xs'
-              : 'text-charcoal-400 hover:text-charcoal-700'
+              ? 'bg-ink-600 text-white shadow-xs'
+              : 'text-ink-400 hover:text-ink-600'
           }`}
         >
           📷 Product Photos
@@ -56,8 +56,8 @@ export default function ProductMediaClient({ images, title, fragrance }: Product
           onClick={() => setViewMode('3d')}
           className={`px-4 py-1.5 text-[10px] font-ui uppercase tracking-wider font-bold rounded-lg transition-all ${
             viewMode === '3d'
-              ? 'bg-charcoal-700 text-white shadow-xs'
-              : 'text-charcoal-400 hover:text-charcoal-700'
+              ? 'bg-ink-600 text-white shadow-xs'
+              : 'text-ink-400 hover:text-ink-600'
           }`}
         >
           🕯️ Interactive 3D Preview
@@ -67,7 +67,7 @@ export default function ProductMediaClient({ images, title, fragrance }: Product
       {/* Main Display Area */}
       {viewMode === 'photos' ? (
         <div className="space-y-6">
-          <div className="relative aspect-square rounded-2xl overflow-hidden bg-cream-100 border border-cream-200 shadow-sm transition-all duration-300">
+          <div className="relative aspect-square rounded-2xl overflow-hidden bg-sand-100 border border-sand-200 shadow-sm transition-all duration-300">
             <Image
               src={selectedImage}
               alt={title}
@@ -85,7 +85,7 @@ export default function ProductMediaClient({ images, title, fragrance }: Product
                   key={img.id}
                   onClick={() => setSelectedImage(img.url)}
                   className={`relative aspect-square rounded-lg overflow-hidden border cursor-pointer transition-colors ${
-                    selectedImage === img.url ? 'border-gold-400 ring-1 ring-gold-400' : 'border-cream-200 hover:border-gold-300'
+                    selectedImage === img.url ? 'border-gold-400 ring-1 ring-gold-400' : 'border-sand-200 hover:border-gold-300'
                   }`}
                 >
                   <Image src={img.url} alt={title} fill className="object-cover" />
@@ -97,7 +97,7 @@ export default function ProductMediaClient({ images, title, fragrance }: Product
       ) : (
         <div className="animate-fade-in">
           <Candle3D waxColor={getWaxColor()} />
-          <p className="text-[10px] text-charcoal-400 italic text-center mt-3 font-body">
+          <p className="text-[10px] text-ink-400 italic text-center mt-3 font-body">
             Drag to rotate, pinch to zoom. Features real-time wooden wick flame flickering.
           </p>
         </div>

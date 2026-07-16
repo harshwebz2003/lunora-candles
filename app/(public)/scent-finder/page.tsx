@@ -112,19 +112,19 @@ export default function ScentFinderPage() {
       
       {/* Header */}
       <div className="text-center max-w-xl mx-auto space-y-3">
-        <h1 className="text-display text-4xl sm:text-5xl font-light text-charcoal-700 font-serif italic">Scent Finder Quiz</h1>
-        <p className="text-xs font-ui uppercase tracking-widest text-gold-400">Discover Scent Profiles to Match Your Aura</p>
+        <h1 className="text-display text-4xl sm:text-5xl font-light text-ink-600 font-serif italic">Scent Finder Quiz</h1>
+        <p className="text-xs font-ui uppercase tracking-widest text-terra-400">Discover Scent Profiles to Match Your Aura</p>
         <div className="divider-gold" />
       </div>
 
       {/* Quiz Board */}
-      <div className="bg-white border border-cream-200 p-8 sm:p-12 rounded-3xl shadow-sm min-h-[360px] flex flex-col justify-between">
+      <div className="bg-white border border-sand-200 p-8 sm:p-12 rounded-3xl shadow-sm min-h-[360px] flex flex-col justify-between">
         
         {/* Loading state */}
         {loading && (
           <div className="flex flex-col items-center justify-center space-y-4 my-auto py-12">
             <div className="skeleton w-16 h-16 rounded-full" />
-            <p className="text-xs font-ui uppercase tracking-widest text-gold-400 font-bold animate-pulse">Analyzing Scent Profile...</p>
+            <p className="text-xs font-ui uppercase tracking-widest text-terra-400 font-bold animate-pulse">Analyzing Scent Profile...</p>
           </div>
         )}
 
@@ -132,10 +132,10 @@ export default function ScentFinderPage() {
         {!loading && !match && (
           <div className="space-y-8 flex-grow flex flex-col justify-between">
             <div className="space-y-4">
-              <span className="text-[10px] font-ui uppercase tracking-wider text-gold-400 font-bold">
+              <span className="text-[10px] font-ui uppercase tracking-wider text-terra-400 font-bold">
                 Question {step + 1} of {QUESTIONS.length}
               </span>
-              <h2 className="text-display text-2xl font-light text-charcoal-700 leading-tight">
+              <h2 className="text-display text-2xl font-light text-ink-600 leading-tight">
                 {QUESTIONS[step].text}
               </h2>
             </div>
@@ -145,12 +145,12 @@ export default function ScentFinderPage() {
                 <button
                   key={opt.value}
                   onClick={() => handleSelectOption(opt.value)}
-                  className="w-full text-left p-4 rounded-xl border border-cream-200 hover:border-gold-300 hover:bg-cream-50/50 transition-all group space-y-1"
+                  className="w-full text-left p-4 rounded-xl border border-sand-200 hover:border-gold-300 hover:bg-sand-50/50 transition-all group space-y-1"
                 >
-                  <strong className="font-ui text-xs font-bold text-charcoal-700 group-hover:text-gold-500 uppercase tracking-wide block">
+                  <strong className="font-ui text-xs font-bold text-ink-600 group-hover:text-terra-500 uppercase tracking-wide block">
                     {opt.label}
                   </strong>
-                  <span className="text-[10px] text-charcoal-400 font-body block">
+                  <span className="text-[10px] text-ink-400 font-body block">
                     {opt.desc}
                   </span>
                 </button>
@@ -164,14 +164,14 @@ export default function ScentFinderPage() {
           <div className="space-y-8 animate-fade-in">
             <div className="text-center space-y-2">
               <span className="text-[10px] font-ui uppercase tracking-wider text-sage-400 font-bold">Your Perfect Fragrance Match</span>
-              <h2 className="text-display text-3xl text-charcoal-700 font-light leading-snug">
-                Meet <span className="font-serif italic text-gold-300">{match.title}</span>
+              <h2 className="text-display text-3xl text-ink-600 font-light leading-snug">
+                Meet <span className="font-serif italic text-terra-300">{match.title}</span>
               </h2>
               <div className="divider-gold" />
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-8 items-center bg-cream-50 p-6 rounded-2xl border border-cream-200">
-              <div className="relative w-40 h-40 overflow-hidden rounded-xl border border-cream-200 bg-cream-100 flex-shrink-0">
+            <div className="flex flex-col sm:flex-row gap-8 items-center bg-sand-50 p-6 rounded-2xl border border-sand-200">
+              <div className="relative w-40 h-40 overflow-hidden rounded-xl border border-sand-200 bg-sand-100 flex-shrink-0">
                 <Image 
                   src={match.images[0]?.url || '/assets/552807669_1339286778208115_6571929007844017528_n.jpg'} 
                   alt={match.title} 
@@ -186,12 +186,12 @@ export default function ScentFinderPage() {
                       Scent profile: {match.fragrance}
                     </span>
                   )}
-                  <p className="text-xs text-charcoal-500 leading-relaxed font-body line-clamp-3">
+                  <p className="text-xs text-ink-500 leading-relaxed font-body line-clamp-3">
                     {match.description}
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-4 items-center">
-                  <span className="font-ui text-sm font-bold text-gold-500">
+                  <span className="font-ui text-sm font-bold text-terra-500">
                     LKR ${(match.price * 300).toLocaleString()}
                   </span>
                   <Link href={`/products/${match.slug}`} className="btn btn-primary py-2 px-6 text-[10px] tracking-widest uppercase">
@@ -201,11 +201,11 @@ export default function ScentFinderPage() {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-cream-200 flex justify-between items-center flex-wrap gap-4">
-              <button onClick={handleReset} className="text-xs font-ui uppercase tracking-widest font-bold text-charcoal-400 hover:text-gold-400 transition-colors">
+            <div className="pt-4 border-t border-sand-200 flex justify-between items-center flex-wrap gap-4">
+              <button onClick={handleReset} className="text-xs font-ui uppercase tracking-widest font-bold text-ink-400 hover:text-terra-400 transition-colors">
                 &larr; Retake Quiz
               </button>
-              <Link href="/shop" className="text-xs font-ui uppercase tracking-widest font-bold text-gold-400 hover:text-gold-500 transition-colors">
+              <Link href="/shop" className="text-xs font-ui uppercase tracking-widest font-bold text-terra-400 hover:text-terra-500 transition-colors">
                 Browse Shop Catalog &rarr;
               </Link>
             </div>

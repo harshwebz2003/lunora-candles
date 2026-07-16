@@ -86,7 +86,7 @@ function CandleMesh({ waxColor = '#F5EDD8' }: { waxColor?: string }) {
 
 export default function Candle3D({ waxColor = '#FAF5EB' }: { waxColor?: string }) {
   return (
-    <div className="w-full h-[400px] cursor-grab active:cursor-grabbing relative rounded-2xl overflow-hidden bg-cream-100/60 border border-cream-200 shadow-sm flex items-center justify-center">
+    <div className="w-full h-[400px] cursor-grab active:cursor-grabbing relative rounded-2xl overflow-hidden bg-sand-100/60 border border-sand-200 shadow-sm flex items-center justify-center">
       {/* Ambient background shadow glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gold-200/10 blur-[80px] rounded-full pointer-events-none" />
 
@@ -108,7 +108,7 @@ export default function Candle3D({ waxColor = '#FAF5EB' }: { waxColor?: string }
       </Canvas>
 
       {/* Touch helper label */}
-      <span className="absolute bottom-4 right-4 text-[9px] font-ui uppercase tracking-widest text-charcoal-300 font-bold bg-white/80 backdrop-blur-xs py-1.5 px-3 rounded-lg border border-cream-200 select-none">
+      <span className="absolute bottom-4 right-4 text-[9px] font-ui uppercase tracking-widest text-ink-300 font-bold bg-white/80 backdrop-blur-xs py-1.5 px-3 rounded-lg border border-sand-200 select-none">
         Rotate 3D View
       </span>
     </div>
