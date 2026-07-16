@@ -1,7 +1,67 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from '@/components/public/ScrollReveal';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const SLIDESHOW_IMAGES = [
+  '/assets/553805204_1339286811541445_7449795635161896691_n.jpg',
+  '/assets/554797110_1339286851541441_8366442550545946149_n.jpg',
+  '/assets/631734611_17911290213317246_3639787322669815310_n.jpg',
+  '/assets/631825283_17911451328317246_8620884724096749501_n.jpg',
+  '/assets/632129514_17911290222317246_1212543984744105027_n.jpg',
+  '/assets/632156505_17911290231317246_2806134531291435844_n.jpg',
+];
+
+function AboutSlideshow() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % SLIDESHOW_IMAGES.length);
+    }, 4000); // Slide every 4 seconds
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="relative w-full h-full overflow-hidden rounded-2xl bg-terra-100 shadow-sm border border-sand-200">
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, scale: 1.03 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.97 }}
+          transition={{ duration: 0.8, ease: 'easeInOut' }}
+          className="absolute inset-0 w-full h-full"
+        >
+          <Image
+            src={SLIDESHOW_IMAGES[index]}
+            alt="Handcrafted Soy Candle"
+            fill
+            className="object-cover"
+            priority={index === 0}
+          />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Slide index indicator dots */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-ink-600/40 backdrop-blur-xs py-1.5 px-3.5 rounded-full border border-white/10 select-none">
+        {SLIDESHOW_IMAGES.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setIndex(idx)}
+            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+              idx === index ? 'bg-white scale-125' : 'bg-white/40'
+            }`}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function AboutPage() {
   return (
@@ -48,13 +108,8 @@ export default function AboutPage() {
           </ScrollReveal>
 
           <ScrollReveal direction="right" delay={0.2}>
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-terra-100">
-              <Image
-                src="/assets/553805204_1339286811541445_7449795635161896691_n.jpg"
-                alt="Hand-pouring candles in Galle studio"
-                fill
-                className="object-cover"
-              />
+            <div className="relative aspect-[4/5]">
+              <AboutSlideshow />
             </div>
           </ScrollReveal>
         </div>

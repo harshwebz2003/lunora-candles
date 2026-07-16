@@ -70,11 +70,11 @@
   --color-rose-400: #B87868;
 
   /* ── Semantic Tokens ── */
-  --color-background:     var(--color-sand-50);
-  --color-surface:        var(--color-sand-100);
+  --color-background:     #FDF7EF;
+  --color-surface:        #F2EAE0;
   --color-surface-raised: #FFFFFF;
-  --color-border:         var(--color-sand-300);
-  --color-border-subtle:  var(--color-sand-200);
+  --color-border:         #D4C6AD;
+  --color-border-subtle:  #EAE2D5;
 
   --color-text-primary:   var(--color-ink-600);
   --color-text-secondary: var(--color-ink-400);
@@ -131,7 +131,8 @@
   }
 
   body {
-    background-color: var(--color-background);
+    background: linear-gradient(180deg, #FDF7EF 0%, #D4C6AD 50%, #7E8052 100%);
+    background-attachment: fixed;
     color: var(--color-text-primary);
     font-family: var(--font-body);
     font-size: 0.9375rem;
