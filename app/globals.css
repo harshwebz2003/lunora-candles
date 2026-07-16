@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
-@source "../components";
-@source "../context";
+@source "../app/**/*.{js,ts,jsx,tsx,css}";
+@source "../components/**/*.{js,ts,jsx,tsx,css}";
+@source "../context/**/*.{js,ts,jsx,tsx,css}";
+
+
 
 /* ─────────────────────────────────────────────
    Lunora Candles — Design Tokens (Figma Redesign)
@@ -114,39 +117,41 @@
    Base / Reset
    ───────────────────────────────────────────── */
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-body {
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
-  font-family: var(--font-body);
-  font-size: 0.9375rem;
-  line-height: 1.65;
-}
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.65;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  line-height: 1.15;
-}
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    line-height: 1.15;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-img, video {
-  display: block;
-  max-width: 100%;
+  img, video {
+    display: block;
+    max-width: 100%;
+  }
 }
 
 /* ─────────────────────────────────────────────
