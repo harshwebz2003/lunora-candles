@@ -192,7 +192,7 @@ export default function ScentFinderPage() {
                 </div>
                 <div className="flex flex-wrap gap-4 items-center">
                   <span className="font-ui text-sm font-bold text-terra-500">
-                    LKR ${(match.price * 300).toLocaleString()}
+                    LKR {(match.price * 300).toLocaleString()}
                   </span>
                   <Link href={`/products/${match.slug}`} className="btn btn-primary py-2 px-6 text-[10px] tracking-widest uppercase">
                     View Product details

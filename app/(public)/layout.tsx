@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '@/components/public/Header';
 import Footer from '@/components/public/Footer';
 import PageTransition from '@/components/public/PageTransition';
+import WhatsAppButton from '@/components/public/WhatsAppButton';
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -13,6 +14,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
         </PageTransition>
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }

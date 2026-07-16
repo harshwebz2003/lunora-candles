@@ -284,7 +284,7 @@ export default function ProductManager({ initialProducts }: { initialProducts: P
                         {prod.fragrance || '(None)'}
                       </td>
                       <td className="py-4 px-6 font-ui font-bold text-gold-500">
-                        LKR ${(prod.price * 300).toLocaleString()}
+                        LKR {(prod.price * 300).toLocaleString()}
                       </td>
                       <td className="py-4 px-6 font-ui font-bold text-charcoal-600">
                         {prod.stock} units
