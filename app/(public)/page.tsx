@@ -5,7 +5,6 @@ import { db } from '@/lib/db';
 import { AddToCartButton, TestimonialsSlider, AnimatedHero } from '@/components/public/HomeClientComponents';
 import ScrollReveal from '@/components/public/ScrollReveal';
 import CandleLab from '@/components/public/CandleLab';
-import TextReveal from '@/components/public/TextReveal';
 
 export const revalidate = 0;
 
@@ -66,7 +65,7 @@ export default async function HomePage() {
       <section className="container mx-auto px-4 sm:px-6 space-y-12">
         <ScrollReveal>
           <div className="text-center space-y-2">
-            <TextReveal as="h2" text="Collections" className="text-display text-4xl sm:text-5xl text-ink-600 tracking-wide" />
+            <h2 className="text-display text-4xl sm:text-5xl text-ink-600 tracking-wide">Collections</h2>
             <div className="divider-gold" />
             <p className="label-caps text-ink-300">Handpicked fragrance selections</p>
           </div>
@@ -135,7 +134,7 @@ export default async function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 space-y-14">
           <ScrollReveal>
             <div className="text-center space-y-2">
-              <TextReveal as="h2" text="Why Lunora" className="text-display text-4xl sm:text-5xl text-ink-600 tracking-wide" />
+              <h2 className="text-display text-4xl sm:text-5xl text-ink-600 tracking-wide">Why Lunora</h2>
               <div className="divider-gold" />
               <p className="label-caps text-ink-300">Handcrafted pure home fragrance</p>
             </div>
@@ -281,7 +280,7 @@ export default async function HomePage() {
           <div className="space-y-12">
             <ScrollReveal>
               <div className="text-center space-y-2">
-                <TextReveal as="h2" text="Studio Journals" className="text-display text-4xl sm:text-5xl text-ink-600 tracking-wide" />
+                <h2 className="text-display text-4xl sm:text-5xl text-ink-600 tracking-wide">Studio Journals</h2>
                 <div className="divider-gold" />
                 <p className="label-caps text-ink-300">Insights into scent design &amp; care</p>
               </div>

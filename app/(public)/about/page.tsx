@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from '@/components/public/ScrollReveal';
 import { motion, AnimatePresence } from 'framer-motion';
-import TextReveal from '@/components/public/TextReveal';
 
 const SLIDESHOW_IMAGES = [
   '/assets/553805204_1339286811541445_7449795635161896691_n.jpg',
@@ -82,7 +81,7 @@ export default function AboutPage() {
         </div>
         <div className="relative z-10 text-center space-y-3 px-6">
           <span className="label-caps text-sand-400 block">Galle, Sri Lanka</span>
-          <TextReveal as="h1" text="Our Story & Studio" className="text-display text-4xl sm:text-5xl font-light text-white" />
+          <h1 className="text-display text-4xl sm:text-5xl font-light text-white">Our Story &amp; Studio</h1>
           <div className="divider-gold" />
           <p className="label-caps text-sand-300">Poured with purpose. Crafted with love.</p>
         </div>
@@ -94,7 +93,10 @@ export default function AboutPage() {
           <ScrollReveal direction="left">
             <div className="space-y-6">
               <span className="label-caps text-terra-400">How it began</span>
-              <TextReveal as="h2" text="How Lunora Candles Began Its Journey" className="text-display text-3xl sm:text-4xl text-ink-600 leading-tight" />
+              <h2 className="text-display text-3xl sm:text-4xl text-ink-600 leading-tight">
+                How Lunora Candles<br />
+                <span className="text-serif-italic text-terra-300">Began Its Journey</span>
+              </h2>
               <div className="w-10 h-px bg-terra-300" />
               <p className="font-ui text-sm text-ink-400 leading-relaxed">
                 Founded along the historic coast of Galle, Sri Lanka, Lunora Candles was born out of a deep passion for natural home aromatics and artisanal design. We wanted to create home scents that were not only deeply luxurious — but also clean-burning and safe for every family.
@@ -119,7 +121,7 @@ export default function AboutPage() {
           <ScrollReveal>
             <div className="text-center mb-14 space-y-2">
               <span className="label-caps text-terra-400">The visionary behind Lunora</span>
-              <TextReveal as="h2" text="Meet the Founder" className="text-display text-3xl sm:text-4xl text-ink-600" />
+              <h2 className="text-display text-3xl sm:text-4xl text-ink-600">Meet the Founder</h2>
               <div className="divider-gold" />
             </div>
           </ScrollReveal>
@@ -147,7 +149,7 @@ export default function AboutPage() {
             <ScrollReveal direction="right" delay={0.25}>
               <div className="space-y-6">
                 <div className="space-y-1">
-                  <TextReveal as="h3" text="Kalana Udara" className="text-display text-4xl text-ink-600" />
+                  <h3 className="text-display text-4xl text-ink-600">Kalana Udara</h3>
                   <p className="label-caps text-terra-400">Founder &amp; CEO · Lunora Candles</p>
                 </div>
 
@@ -191,7 +193,7 @@ export default function AboutPage() {
       <section className="container mx-auto px-4 sm:px-6 py-20">
         <ScrollReveal>
           <div className="text-center mb-14 space-y-2">
-            <TextReveal as="h2" text="Studio Philosophy" className="text-display text-3xl sm:text-4xl text-ink-600" />
+            <h2 className="text-display text-3xl sm:text-4xl text-ink-600">Studio Philosophy</h2>
             <div className="divider-gold" />
           </div>
         </ScrollReveal>
@@ -229,7 +231,7 @@ export default function AboutPage() {
       <section className="bg-ink-600 py-16">
         <ScrollReveal>
           <div className="container mx-auto px-4 sm:px-6 text-center max-w-2xl space-y-6">
-            <TextReveal as="h2" text="Visit Our Studio" className="text-display text-3xl font-light text-white" />
+            <h2 className="text-display text-3xl font-light text-white">Visit Our Studio</h2>
             <div className="w-10 h-px bg-terra-300 mx-auto" />
             <p className="font-ui text-sm text-sand-300 leading-relaxed">
               We love meeting fellow fragrance lovers. Stop by our Dowata, Galle studio to browse fragrances, experience live candle pours, or design your own custom scents.

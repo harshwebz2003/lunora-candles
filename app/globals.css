@@ -490,62 +490,47 @@
 /* ─────────────────────────────────────────────
    Split Text Animations
    ───────────────────────────────────────────── */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background: #121212;
-    font-family: 'Arial', sans-serif;
-    color: #fff;
-    overflow: hidden;
-}
-
 .split-text-container {
-    display: flex;
-    font-size: 5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #fff;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .text-part {
-    display: inline-block;
-    position: relative;
-    transform: translateX(0);
-    animation-duration: 2s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
+  display: inline-block;
+  position: relative;
+  transform: translateX(0);
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: forwards;
 }
 
 .text-part.left {
-    transform: translateX(-200%);
-    animation-name: slide-in-left;
+  transform: translateX(-150%);
+  animation-name: slide-in-left;
 }
 
 .text-part.right {
-    transform: translateX(200%);
-    animation-name: slide-in-right;
+  transform: translateX(150%);
+  animation-name: slide-in-right;
 }
 
 @keyframes slide-in-left {
-    0% {
-        transform: translateX(-200%);
-    }
-    100% {
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(-150%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @keyframes slide-in-right {
-    0% {
-        transform: translateX(200%);
-    }
-    100% {
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(150%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* ─────────────────────────────────────────────
