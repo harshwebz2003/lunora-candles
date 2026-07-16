@@ -576,9 +576,6 @@
 
 /* Small round action buttons */
 .neumorphic-icon-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 50%;
   background: transparent;
   border: 1px solid transparent;

@@ -92,7 +92,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 {product.title}
               </h1>
               <p className="font-ui text-xl font-medium text-ink-500 mt-3">
-                ${product.price.toFixed(2)} USD
+                LKR {(product.price * 300).toLocaleString()}
               </p>
             </div>
 
@@ -196,7 +196,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                       </div>
                       <div className="pt-3 text-center space-y-1 px-1">
                         <h3 className="label-caps text-ink-600 font-medium">{rel.title.toUpperCase()}</h3>
-                        <p className="font-ui text-sm text-ink-500">${rel.price.toFixed(2)}</p>
+                        <p className="font-ui text-sm text-ink-500">LKR {(rel.price * 300).toLocaleString()}</p>
                       </div>
                     </Link>
                   </ScrollReveal>

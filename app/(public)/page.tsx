@@ -106,7 +106,7 @@ export default async function HomePage() {
                       </div>
                       <div className="text-center pt-1">
                         <p className="font-ui text-sm text-ink-500">
-                          ${product.price.toFixed(2)}
+                          LKR {(product.price * 300).toLocaleString()}
                         </p>
                       </div>
                     </Link>

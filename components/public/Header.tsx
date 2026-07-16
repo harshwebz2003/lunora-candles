@@ -95,21 +95,21 @@ export default function Header() {
           <div className="flex items-center gap-2 flex-shrink-0">
             <Link
               href="/shop"
-              className="h-9 w-9 neumorphic-icon-btn hidden lg:flex"
+              className="hidden lg:flex items-center justify-center h-9 w-9 neumorphic-icon-btn"
               aria-label="Search"
             >
               <MagnifyingGlassIcon className="h-4.5 w-4.5" />
             </Link>
             <Link
               href="/shop"
-              className="h-9 w-9 neumorphic-icon-btn hidden lg:flex"
+              className="hidden lg:flex items-center justify-center h-9 w-9 neumorphic-icon-btn"
               aria-label="Wishlist"
             >
               <HeartIcon className="h-4.5 w-4.5" />
             </Link>
             <Link
               href="/admin"
-              className="h-9 w-9 neumorphic-icon-btn hidden lg:flex"
+              className="hidden lg:flex items-center justify-center h-9 w-9 neumorphic-icon-btn"
               aria-label="Account"
             >
               <UserIcon className="h-4.5 w-4.5" />
@@ -118,7 +118,7 @@ export default function Header() {
             {/* Cart Button */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative h-9 w-9 neumorphic-icon-btn"
+              className="flex items-center justify-center relative h-9 w-9 neumorphic-icon-btn"
               aria-label="Cart"
             >
               <ShoppingBagIcon className="h-4.5 w-4.5" />
@@ -132,7 +132,7 @@ export default function Header() {
             {/* Mobile Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="h-9 w-9 neumorphic-icon-btn lg:hidden"
+              className="flex lg:hidden items-center justify-center h-9 w-9 neumorphic-icon-btn"
               aria-label="Menu"
             >
               {isMobileMenuOpen ? <XMarkIcon className="h-4.5 w-4.5" /> : <Bars3Icon className="h-4.5 w-4.5" />}

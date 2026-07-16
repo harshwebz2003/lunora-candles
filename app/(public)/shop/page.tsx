@@ -126,7 +126,7 @@ export default async function ShopPage({ searchParams }: PageProps) {
                           {product.title.toUpperCase()}
                         </h3>
                       </Link>
-                      <p className="font-ui text-sm text-ink-500">${product.price.toFixed(2)}</p>
+                      <p className="font-ui text-sm text-ink-500">LKR {(product.price * 300).toLocaleString()}</p>
 
                       {/* Quick Add */}
                       <div className="pt-1">
