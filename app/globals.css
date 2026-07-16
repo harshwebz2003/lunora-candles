@@ -1,26 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─────────────────────────────────────────────
+   Lunora Candles — Design Tokens (Tailwind v4)
+   ───────────────────────────────────────────── */
+
+@theme {
+  /* ── Typography ── */
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Lato", "Inter", system-ui, sans-serif;
+  --font-ui: "Inter", system-ui, sans-serif;
+
+  /* ── Brand Palette ── */
+  /* Cream / Warm whites */
+  --color-cream-50:  #FDFAF5;
+  --color-cream-100: #FAF5EB;
+  --color-cream-200: #F5EDD8;
+  --color-cream-300: #EDE0C4;
+
+  /* Gold / Warm amber */
+  --color-gold-100:  #F7E7C1;
+  --color-gold-200:  #EDCC87;
+  --color-gold-300:  #D4A84B;
+  --color-gold-400:  #B8892E;
+  --color-gold-500:  #9A6E1A;
+
+  /* Warm charcoal */
+  --color-charcoal-50:  #F5F0EB;
+  --color-charcoal-100: #E0D5C8;
+  --color-charcoal-200: #B8A898;
+  --color-charcoal-300: #8A7468;
+  --color-charcoal-400: #5C4A3D;
+  --color-charcoal-500: #3D3028;
+  --color-charcoal-600: #2A1F17;
+  --color-charcoal-700: #1A120C;
+
+  /* Sage greens */
+  --color-sage-100: #E8EDE4;
+  --color-sage-200: #C8D4C0;
+  --color-sage-300: #9BAF8E;
+  --color-sage-400: #718A63;
+
+  /* Rose / blush */
+  --color-rose-100: #F5E6E0;
+  --color-rose-200: #E8C9C0;
+  --color-rose-300: #D4A090;
+  --color-rose-400: #B87868;
+
+  /* ── Semantic Tokens ── */
+  --color-background:      var(--color-cream-50);
+  --color-surface:         var(--color-cream-100);
+  --color-surface-raised:  #FFFFFF;
+  --color-border:          var(--color-cream-300);
+  --color-border-subtle:   var(--color-cream-200);
+
+  --color-text-primary:    var(--color-charcoal-600);
+  --color-text-secondary:  var(--color-charcoal-400);
+  --color-text-muted:      var(--color-charcoal-300);
+  --color-text-inverse:    var(--color-cream-50);
+
+  --color-accent:          var(--color-gold-300);
+  --color-accent-hover:    var(--color-gold-400);
+  --color-accent-light:    var(--color-gold-100);
+
+  --color-admin-bg:        var(--color-charcoal-600);
+  --color-admin-surface:   var(--color-charcoal-500);
+  --color-admin-border:    var(--color-charcoal-400);
+
+  /* ── Spacing Scale ── */
+  --spacing-section:   5rem;       /* 80px — vertical section padding */
+  --spacing-container: 1.25rem;    /* 20px — horizontal page margin   */
+
+  /* ── Border Radius ── */
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   1rem;
+  --radius-xl:   1.5rem;
+  --radius-pill: 999px;
+
+  /* ── Shadows ── */
+  --shadow-sm:  0 1px 3px rgba(60, 40, 20, 0.08);
+  --shadow-md:  0 4px 16px rgba(60, 40, 20, 0.12);
+  --shadow-lg:  0 12px 40px rgba(60, 40, 20, 0.18);
+  --shadow-glow: 0 0 24px rgba(212, 168, 75, 0.25);
+
+  /* ── Transitions ── */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-slow:   400ms ease;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─────────────────────────────────────────────
+   Base / Reset
+   ───────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* ── Headings default to display font ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  color: var(--color-charcoal-600);
+  font-weight: 500;
+}
+
+/* ── Link reset ── */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Image reset ── */
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── Button reset ── */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* ─────────────────────────────────────────────
+   Utility Classes
+   ───────────────────────────────────────────── */
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-container);
+  padding-right: var(--spacing-container);
+}
+
+@media (min-width: 640px) {
+  .container { padding-left: 2rem; padding-right: 2rem; }
+}
+@media (min-width: 1024px) {
+  .container { padding-left: 4rem; padding-right: 4rem; }
+}
+
+/* Section vertical padding */
+.section-padding {
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+/* Text styles */
+.text-display {
+  font-family: var(--font-display);
+}
+
+.text-ui {
+  font-family: var(--font-ui);
+}
+
+/* Gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--color-gold-300), var(--color-gold-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Decorative dividers */
+.divider-gold {
+  width: 3.5rem;
+  height: 1.5px;
+  background: linear-gradient(to right, var(--color-gold-200), var(--color-gold-400), var(--color-gold-200));
+  margin: 0.75rem auto;
+}
+
+/* Card base */
+.card {
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--color-gold-300);
+  color: var(--color-charcoal-700);
+  border: 1.5px solid var(--color-gold-300);
+}
+.btn-primary:hover {
+  background: var(--color-gold-400);
+  border-color: var(--color-gold-400);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-charcoal-600);
+  border: 1.5px solid var(--color-charcoal-300);
+}
+.btn-outline:hover {
+  border-color: var(--color-gold-300);
+  color: var(--color-gold-400);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-gold-400);
+  border: 1.5px solid transparent;
+  padding: 0.5rem 0.75rem;
+}
+.btn-ghost:hover {
+  background: var(--color-gold-100);
+}
+
+.btn-dark {
+  background: var(--color-charcoal-600);
+  color: var(--color-cream-50);
+  border: 1.5px solid var(--color-charcoal-600);
+}
+.btn-dark:hover {
+  background: var(--color-charcoal-700);
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.badge-gold {
+  background: var(--color-gold-100);
+  color: var(--color-gold-500);
+}
+.badge-sage {
+  background: var(--color-sage-100);
+  color: var(--color-sage-400);
+}
+.badge-charcoal {
+  background: var(--color-charcoal-100);
+  color: var(--color-charcoal-500);
+}
+
+/* Input base */
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-raised);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+}
+.input:focus {
+  border-color: var(--color-gold-300);
+  box-shadow: 0 0 0 3px rgba(212, 168, 75, 0.15);
+}
+.input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Skeleton animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    90deg,
+    var(--color-cream-200) 25%,
+    var(--color-cream-100) 50%,
+    var(--color-cream-200) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.5s var(--transition-base) both;
+}
+
+/* Stagger children */
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 80ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 160ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 320ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 400ms; }
+
+/* ─────────────────────────────────────────────
+   Scrollbar Styling
+   ───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-charcoal-200);
+  border-radius: var(--radius-pill);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-300);
+}
+
+/* ─────────────────────────────────────────────
+   Admin Layout Dark Sidebar
+   ───────────────────────────────────────────── */
+.admin-sidebar {
+  background: var(--color-charcoal-600);
+  color: var(--color-cream-200);
+}
+.admin-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-family: var(--font-ui);
+  color: var(--color-charcoal-200);
+  transition: all var(--transition-fast);
+}
+.admin-sidebar-link:hover,
+.admin-sidebar-link.active {
+  background: var(--color-charcoal-500);
+  color: var(--color-gold-200);
+}
+.admin-sidebar-link.active {
+  background: rgba(212, 168, 75, 0.15);
+  color: var(--color-gold-300);
+  border-left: 3px solid var(--color-gold-300);
 }
