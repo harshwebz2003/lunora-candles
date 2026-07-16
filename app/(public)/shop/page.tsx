@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { db } from '@/lib/db';
 import { AddToCartButton } from '@/components/public/HomeClientComponents';
+import ShopFilters from '@/components/public/ShopFilters';
 
 export const revalidate = 0;
 
@@ -109,78 +110,12 @@ export default async function ShopPage({ searchParams }: PageProps) {
       </div>
 
       {/* Filters and Controls */}
-      <div className="bg-white border border-cream-200 rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center justify-between shadow-sm">
-        
-        {/* Search Form */}
-        <form method="GET" action="/shop" className="w-full md:w-auto flex-grow max-w-md flex gap-2">
-          <input
-            type="text"
-            name="search"
-            defaultValue={search}
-            placeholder="Search candles..."
-            className="input text-xs"
-          />
-          {fragranceFilter && <input type="hidden" name="fragrance" value={fragranceFilter} />}
-          {sort && <input type="hidden" name="sort" value={sort} />}
-          <button type="submit" className="btn btn-primary py-2 px-6 text-xs tracking-widest uppercase">
-            Search
-          </button>
-        </form>
-
-        {/* Filters */}
-        <div className="w-full md:w-auto flex flex-wrap gap-4 items-center justify-end">
-          {/* Fragrance Select */}
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold">Fragrance:</span>
-            <select
-              className="input text-xs py-2 px-3 pr-8 min-w-[140px] bg-cream-50"
-              onChange={(e) => {
-                const val = e.target.value;
-                const newParams = new URLSearchParams();
-                if (search) newParams.set('search', search);
-                if (val) newParams.set('fragrance', val);
-                if (sort) newParams.set('sort', sort);
-                window.location.href = `/shop?${newParams.toString()}`;
-              }}
-              value={fragranceFilter}
-            >
-              <option value="">All Scents</option>
-              {fragrancesList.map((frag) => (
-                <option key={frag} value={frag}>{frag}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* Sort Select */}
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold">Sort:</span>
-            <select
-              className="input text-xs py-2 px-3 pr-8 min-w-[140px] bg-cream-50"
-              onChange={(e) => {
-                const val = e.target.value;
-                const newParams = new URLSearchParams();
-                if (search) newParams.set('search', search);
-                if (fragranceFilter) newParams.set('fragrance', fragranceFilter);
-                if (val) newParams.set('sort', val);
-                window.location.href = `/shop?${newParams.toString()}`;
-              }}
-              value={sort}
-            >
-              <option value="">Default (Newest)</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
-              <option value="name-asc">Name: A to Z</option>
-              <option value="name-desc">Name: Z to A</option>
-            </select>
-          </div>
-
-          {(search || fragranceFilter || sort) && (
-            <Link href="/shop" className="text-xs text-rose-400 hover:text-rose-500 font-ui font-semibold uppercase tracking-wider py-2">
-              Clear All
-            </Link>
-          )}
-        </div>
-      </div>
+      <ShopFilters 
+        initialSearch={search}
+        initialFragrance={fragranceFilter}
+        initialSort={sort}
+        fragrancesList={fragrancesList}
+      />
 
       {/* Products Grid */}
       {products.length === 0 ? (
