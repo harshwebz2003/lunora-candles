@@ -8,7 +8,7 @@ import {
   MapPinIcon, 
   GiftIcon 
 } from '@heroicons/react/24/outline';
-import HomeClientComponents from '@/components/public/HomeClientComponents';
+import { AddToCartButton, TestimonialsSlider } from '@/components/public/HomeClientComponents';
 
 export const revalidate = 0; // Fresh database fetches
 
@@ -174,7 +174,7 @@ export default async function HomePage() {
                 
                 {/* Client Side Cart Hook wrapper */}
                 <div className="px-6 pb-6 pt-2">
-                  <HomeClientComponents.AddToCartButton 
+                  <AddToCartButton 
                     id={product.id}
                     slug={product.slug}
                     title={product.title}
@@ -231,7 +231,7 @@ export default async function HomePage() {
             <p className="text-[10px] font-ui uppercase tracking-wider text-gold-400">Genuine customer reviews</p>
             <div className="divider-gold mx-0" />
             
-            <HomeClientComponents.TestimonialsSlider testimonials={testimonials} />
+            <TestimonialsSlider testimonials={testimonials} />
           </div>
         </div>
 
