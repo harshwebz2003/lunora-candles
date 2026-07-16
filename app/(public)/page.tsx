@@ -191,7 +191,7 @@ export default async function HomePage() {
       {/* 4. Fragrance Category Spotlight (Banner / Promo) */}
       <section className="bg-cream-100 border-y border-cream-200 py-20">
         <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-4/3 rounded-2xl overflow-hidden shadow-lg border border-cream-300">
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-cream-300">
             <Image 
               src="/assets/631825283_17911451328317246_8620884724096749501_n.jpg"
               alt="Luxury Candle Pouring"
