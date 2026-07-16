@@ -76,6 +76,38 @@ export default async function ShopPage({ searchParams }: PageProps) {
         <div className="divider-gold" />
       </div>
 
+      {/* Seasonal Collections Spotlight */}
+      <div className="space-y-4">
+        <h2 className="font-display text-xs uppercase tracking-[0.25em] text-charcoal-400 font-bold text-center">Seasonal Collections Spotlight</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Spring/Summer Monsoon Serenade */}
+          <Link href="/shop?search=sea+salt" className="group relative block overflow-hidden rounded-2xl border border-cream-200 bg-cream-100/50 hover:border-gold-300 transition-all p-6 sm:p-8">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-sage-200/20 blur-[60px] rounded-full pointer-events-none group-hover:scale-110 transition-transform" />
+            <div className="relative space-y-2 z-10">
+              <span className="text-[9px] font-ui uppercase tracking-wider text-sage-400 font-bold">Monsoon Serenade Collection</span>
+              <h3 className="text-display text-xl text-charcoal-700 group-hover:text-gold-400 transition-colors">Earthy Ocean & Rain</h3>
+              <p className="text-[11px] text-charcoal-400 leading-relaxed font-body max-w-sm">
+                Clean, refreshing marine air, herbal French lavender, and mineral ocean breeze wicks to calm your senses during rainfall.
+              </p>
+              <span className="inline-block text-[10px] font-ui uppercase font-bold tracking-wider text-gold-400 pt-2">Shop Monsoon Collection &rarr;</span>
+            </div>
+          </Link>
+
+          {/* Ceylon Spiced Winter */}
+          <Link href="/shop?search=cinnamon" className="group relative block overflow-hidden rounded-2xl border border-cream-200 bg-cream-100/50 hover:border-gold-300 transition-all p-6 sm:p-8">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-gold-200/20 blur-[60px] rounded-full pointer-events-none group-hover:scale-110 transition-transform" />
+            <div className="relative space-y-2 z-10">
+              <span className="text-[9px] font-ui uppercase tracking-wider text-gold-400 font-bold">Ceylon Spiced Winter Collection</span>
+              <h3 className="text-display text-xl text-charcoal-700 group-hover:text-gold-400 transition-colors">Warm Amber & Spices</h3>
+              <p className="text-[11px] text-charcoal-400 leading-relaxed font-body max-w-sm">
+                Indulge in rich Sri Lankan cinnamon bark, sweet clove oil, and cozy Madagascar vanilla amberwood for cold evenings.
+              </p>
+              <span className="inline-block text-[10px] font-ui uppercase font-bold tracking-wider text-gold-400 pt-2">Shop Spiced Collection &rarr;</span>
+            </div>
+          </Link>
+        </div>
+      </div>
+
       {/* Filters and Controls */}
       <div className="bg-white border border-cream-200 rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center justify-between shadow-sm">
         

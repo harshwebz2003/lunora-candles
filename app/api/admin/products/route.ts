@@ -14,6 +14,19 @@ const productSchema = z.object({
   imageUrl: z.string().min(1, 'Product image is required'),
 });
 
+export async function GET() {
+  try {
+    const products = await db.product.findMany({
+      include: { images: true },
+      orderBy: { id: 'asc' },
+    });
+    return NextResponse.json({ success: true, products });
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    return NextResponse.json({ success: false, message: 'Internal server error' }, { status: 500 });
+  }
+}
+
 export async function POST(req: Request) {
   try {
     const session = await getServerSession(authOptions);

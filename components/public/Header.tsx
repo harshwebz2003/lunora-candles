@@ -16,6 +16,7 @@ import {
 
 const NAV_LINKS = [
   { href: '/shop', label: 'Shop' },
+  { href: '/scent-finder', label: 'Scent Quiz' },
   { href: '/fragrance-guide', label: 'Fragrances' },
   { href: '/candle-care', label: 'Candle Care' },
   { href: '/gallery', label: 'Gallery' },

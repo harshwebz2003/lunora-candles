@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { db } from '@/lib/db';
 import ProductDetailClient from '@/components/public/ProductDetailClient';
+import ProductMediaClient from '@/components/public/ProductMediaClient';
 
 export const revalidate = 0;
 
@@ -50,27 +51,11 @@ export default async function ProductDetailPage({ params }: PageProps) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20">
         
         {/* Images Column */}
-        <div className="space-y-6">
-          <div className="relative aspect-square rounded-2xl overflow-hidden bg-cream-100 border border-cream-200 shadow-sm">
-            <Image 
-              src={primaryImage} 
-              alt={product.title} 
-              fill 
-              className="object-cover"
-              priority
-            />
-          </div>
-          {/* Gallery thumbnails if multiple */}
-          {product.images.length > 1 && (
-            <div className="grid grid-cols-4 gap-4">
-              {product.images.map((img) => (
-                <div key={img.id} className="relative aspect-square rounded-lg overflow-hidden border border-cream-200 cursor-pointer hover:border-gold-300 transition-colors">
-                  <Image src={img.url} alt={product.title} fill className="object-cover" />
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
+        <ProductMediaClient 
+          images={product.images} 
+          title={product.title} 
+          fragrance={product.fragrance} 
+        />
 
         {/* Content Column */}
         <div className="space-y-6">
