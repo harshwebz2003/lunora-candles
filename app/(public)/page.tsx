@@ -134,26 +134,30 @@ export default async function HomePage() {
       </section>
 
       {/* ── WHY LUNORA ── */}
-      <section className="bg-sand-100 border-y border-sand-200 py-16 mt-12">
+      <section className="bg-sand-100 border-y border-sand-200 py-20 mt-16">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollReveal>
-            <div className="text-center mb-12 space-y-2">
-              <h2 className="text-display text-3xl sm:text-4xl text-ink-600">Why Lunora</h2>
+            <div className="text-center mb-16 space-y-2">
+              <h2 className="text-display text-4xl sm:text-5xl text-ink-600 tracking-wide">Why Lunora</h2>
               <div className="divider-gold" />
+              <p className="label-caps text-ink-300">Handcrafted pure home fragrance</p>
             </div>
           </ScrollReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: '🌿', title: 'Pure Soy Wax', desc: '100% natural, paraffin-free soy wax sourced from sustainable farms. Cleaner burn, longer lasting.' },
-              { icon: '🪵', title: 'Wooden Wicks', desc: 'Organic cotton-core and wooden wicks that crackle softly as they burn — a true sensory experience.' },
-              { icon: '🎁', title: 'Gift Ready', desc: 'Every candle arrives in elegant, reusable packaging, perfect for weddings, events, and personal gifting.' },
+              { title: 'Pure Soy Wax', desc: '100% natural, paraffin-free soy wax sourced from sustainable farms. Cleaner burn, longer lasting.' },
+              { title: 'Wooden Wicks', desc: 'Organic cotton-core and wooden wicks that crackle softly as they burn — a true sensory experience.' },
+              { title: 'Gift Ready', desc: 'Every candle arrives in elegant, reusable packaging, perfect for weddings, events, and personal gifting.' },
             ].map((item, i) => (
-              <ScrollReveal key={i} delay={0.15 * (i + 1)}>
-                <div className="space-y-3 px-4">
-                  <div className="text-3xl">{item.icon}</div>
-                  <h3 className="font-display text-xl text-ink-600">{item.title}</h3>
-                  <p className="font-ui text-xs text-ink-400 leading-relaxed">{item.desc}</p>
-                </div>
+              <ScrollReveal 
+                key={i} 
+                delay={0.1 * i}
+                className="space-y-4 px-6 py-8 bg-white border border-sand-200 rounded-2xl hover:shadow-md transition-all duration-300 flex flex-col items-center text-center"
+              >
+                <span className="font-display text-3xl text-terra-300 italic">0{i + 1}</span>
+                <h3 className="font-display text-xl text-ink-600 tracking-wide font-medium">{item.title}</h3>
+                <p className="font-ui text-xs text-ink-400 leading-relaxed max-w-[260px]">{item.desc}</p>
               </ScrollReveal>
             ))}
           </div>
@@ -161,76 +165,94 @@ export default async function HomePage() {
       </section>
 
       {/* ── TESTIMONIALS + CARE TIP ── */}
-      <section className="container mx-auto px-4 sm:px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <ScrollReveal direction="left" className="h-full flex flex-col">
-          <div className="bg-white border border-sand-200 rounded-2xl p-8 sm:p-10 flex flex-col gap-6 h-full">
-            <div className="space-y-1">
-              <h3 className="text-display text-2xl text-ink-600">What Our Customers Say</h3>
-              <div className="divider-gold-left" />
-              <p className="label-caps">Genuine reviews</p>
-            </div>
-            <TestimonialsSlider testimonials={testimonials} />
+      <section className="container mx-auto px-4 sm:px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        <ScrollReveal 
+          direction="left" 
+          className="bg-white border border-sand-200 rounded-2xl p-8 sm:p-10 flex flex-col gap-6"
+        >
+          <div className="space-y-1">
+            <h3 className="text-display text-3xl text-ink-600">What Our Customers Say</h3>
+            <div className="divider-gold-left" />
+            <p className="label-caps text-ink-300">Genuine reviews</p>
           </div>
+          <TestimonialsSlider testimonials={testimonials} />
         </ScrollReveal>
 
-        <ScrollReveal direction="right" className="h-full flex flex-col">
-          <div className="bg-ink-600 text-white rounded-2xl p-8 sm:p-10 flex flex-col gap-6 h-full">
-            <div className="space-y-1">
-              <span className="label-caps text-sand-400">Candle Care</span>
-              <h3 className="text-display text-2xl text-sand-100">Prevent Tunneling</h3>
-              <div className="w-10 h-px bg-terra-300 mt-2" />
-            </div>
-            <p className="font-ui text-sm text-sand-300 leading-relaxed">
-              Soy candles have a "burn memory." Always allow a full melt pool to the edges before extinguishing — especially on the first burn.
+        <ScrollReveal 
+          direction="right" 
+          className="bg-ink-600 text-white rounded-2xl p-8 sm:p-10 flex flex-col gap-6"
+        >
+          <div className="space-y-1">
+            <span className="label-caps text-sand-400">Candle Care</span>
+            <h3 className="text-display text-3xl text-sand-100">Prevent Tunneling</h3>
+            <div className="w-10 h-px bg-terra-300 mt-2" />
+          </div>
+          
+          <p className="font-ui text-sm text-sand-200 leading-relaxed">
+            Soy candles have a "burn memory." Always allow a full melt pool to the edges before extinguishing — especially on the first burn.
+          </p>
+          
+          <div className="bg-ink-500 border border-ink-400/50 p-5 rounded-xl">
+            <p className="label-caps text-terra-200 mb-2">💡 Essential tip</p>
+            <p className="font-ui text-xs text-sand-200 leading-relaxed">
+              Burn for at least 2–3 hours on first light to establish a full melt pool and prevent wax tunneling.
             </p>
-            <div className="bg-ink-500/60 border border-ink-400 p-4 rounded-xl">
-              <p className="label-caps text-terra-200 mb-2">💡 Essential tip</p>
-              <p className="font-ui text-sm text-sand-200 leading-relaxed">
-                Burn for at least 2–3 hours on first light to establish a full melt pool and prevent wax tunneling.
-              </p>
-            </div>
-            <div className="mt-auto pt-2">
-              <Link href="/candle-care" className="btn btn-outline border-white/30 text-white hover:bg-white/10 w-full">
-                Full Candle Care Guide
-              </Link>
-            </div>
+          </div>
+          
+          <div className="mt-auto pt-4">
+            <Link href="/candle-care" className="btn btn-outline border-white/30 text-white hover:bg-white/10 w-full text-center">
+              Full Candle Care Guide
+            </Link>
           </div>
         </ScrollReveal>
       </section>
 
       {/* ── BLOG ── */}
       {blogs.length > 0 && (
-        <section className="container mx-auto px-4 sm:px-6 pb-4">
+        <section className="container mx-auto px-4 sm:px-6 pb-8">
           <ScrollReveal>
-            <div className="text-center mb-10 space-y-2">
-              <h2 className="text-display text-3xl sm:text-4xl text-ink-600">Studio Journals</h2>
+            <div className="text-center mb-16 space-y-2">
+              <h2 className="text-display text-4xl sm:text-5xl text-ink-600 tracking-wide">Studio Journals</h2>
               <div className="divider-gold" />
-              <p className="label-caps">Insights into scent design &amp; care</p>
+              <p className="label-caps text-ink-300">Insights into scent design &amp; care</p>
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {blogs.map((blog, idx) => (
-              <ScrollReveal key={blog.id} delay={0.15 * (idx + 1)} direction={idx === 0 ? 'left' : 'right'} className="h-full flex flex-col">
-                <Link
-                  href={`/blog/${blog.slug}`}
-                  className="group bg-white border border-sand-200 rounded-2xl p-7 flex flex-col gap-4 h-full hover:shadow-md transition-shadow"
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            {blogs.map((blog, idx) => {
+              const isEven = idx % 2 === 0;
+              return (
+                <ScrollReveal 
+                  key={blog.id} 
+                  delay={0.1 * idx} 
+                  direction={isEven ? 'left' : 'right'} 
+                  className={`group rounded-2xl overflow-hidden border border-sand-200 transition-all duration-300 hover:shadow-md flex flex-col justify-between ${
+                    isEven ? 'bg-white' : 'bg-sand-100'
+                  }`}
                 >
-                  <span className="label-caps text-terra-400">
-                    {new Date(blog.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-                  </span>
-                  <h3 className="font-display text-xl text-ink-600 leading-snug group-hover:text-terra-400 transition-colors">
-                    {blog.title}
-                  </h3>
-                  <div className="mt-auto flex items-center justify-between border-t border-sand-100 pt-4">
-                    <span className="label-caps">By {blog.author.name || 'Admin'}</span>
-                    <span className="label-caps text-terra-400 group-hover:translate-x-1 transition-transform inline-block">
-                      Read Article →
-                    </span>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
+                  <Link
+                    href={`/blog/${blog.slug}`}
+                    className="p-8 sm:p-10 flex flex-col gap-6 h-full justify-between"
+                  >
+                    <div className="space-y-4">
+                      <span className="label-caps text-terra-400">
+                        {new Date(blog.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                      </span>
+                      <h3 className="font-display text-2xl text-ink-600 leading-snug group-hover:text-terra-400 transition-colors">
+                        {blog.title}
+                      </h3>
+                    </div>
+                    
+                    <div className="flex items-center justify-between border-t border-sand-300/40 pt-5 mt-6">
+                      <span className="label-caps text-ink-400">By {blog.author.name || 'Admin'}</span>
+                      <span className="label-caps text-terra-400 group-hover:translate-x-1.5 transition-transform inline-block font-semibold">
+                        Read Article →
+                      </span>
+                    </div>
+                  </Link>
+                </ScrollReveal>
+              );
+            })}
           </div>
         </section>
       )}

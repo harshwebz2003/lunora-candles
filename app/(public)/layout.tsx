@@ -5,7 +5,7 @@ import PageTransition from '@/components/public/PageTransition';
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col min-h-screen bg-sand-50">
+    <div className="flex flex-col min-h-screen bg-sand-50 overflow-x-hidden">
       <Header />
       <main className="flex-grow flex flex-col">
         <PageTransition>

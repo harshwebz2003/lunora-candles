@@ -53,7 +53,7 @@ export function TestimonialsSlider({ testimonials }: { testimonials: Testimonial
   const [activeIndex, setActiveIndex] = useState(0);
 
   if (!testimonials || testimonials.length === 0) {
-    return <p className="text-xs text-charcoal-400 font-body">No testimonials approved yet.</p>;
+    return <p className="label-caps text-center text-ink-300 py-10">No testimonials yet</p>;
   }
 
   const active = testimonials[activeIndex];
@@ -67,27 +67,27 @@ export function TestimonialsSlider({ testimonials }: { testimonials: Testimonial
   };
 
   return (
-    <div className="space-y-6 pt-4 flex flex-col justify-between flex-grow min-h-[160px]">
+    <div className="flex flex-col justify-between flex-1 gap-6">
       <div className="space-y-4">
         {/* Rating Stars */}
-        <div className="flex gap-1 text-gold-300">
+        <div className="flex gap-1 text-gold-400">
           {Array.from({ length: active.rating }).map((_, i) => (
-            <SparklesIcon key={i} className="h-4 w-4" />
+            <span key={i} className="text-lg">★</span>
           ))}
         </div>
         
         {/* Review text */}
-        <p className="text-sm text-charcoal-500 italic leading-relaxed font-body">
-          &quot;{active.content}&quot;
+        <p className="font-display text-lg sm:text-xl text-ink-500 italic leading-relaxed font-light">
+          &ldquo;{active.content}&rdquo;
         </p>
       </div>
 
-      <div className="flex items-center justify-between pt-6 border-t border-cream-200 mt-auto">
+      <div className="flex items-center justify-between pt-6 border-t border-sand-200 mt-auto">
         <div>
-          <h4 className="font-ui text-xs font-bold uppercase tracking-widest text-charcoal-700">
+          <h4 className="label-caps text-ink-600 font-semibold tracking-wider">
             {active.author}
           </h4>
-          <span className="text-[10px] text-charcoal-400 font-body font-light">Verified Buyer</span>
+          <span className="label-caps text-[9px] text-ink-300 font-medium">Verified Buyer</span>
         </div>
         
         {/* Navigation buttons */}
@@ -95,17 +95,17 @@ export function TestimonialsSlider({ testimonials }: { testimonials: Testimonial
           <div className="flex gap-2">
             <button 
               onClick={handlePrev}
-              className="h-8 w-8 rounded-full border border-cream-300 hover:border-gold-300 flex items-center justify-center text-charcoal-400 hover:text-gold-400 transition-colors"
+              className="h-8 w-8 rounded-full border border-sand-300 hover:border-terra-300 hover:text-terra-400 flex items-center justify-center text-ink-400 transition-colors"
               aria-label="Previous Testimonial"
             >
-              &larr;
+              ←
             </button>
             <button 
               onClick={handleNext}
-              className="h-8 w-8 rounded-full border border-cream-300 hover:border-gold-300 flex items-center justify-center text-charcoal-400 hover:text-gold-400 transition-colors"
+              className="h-8 w-8 rounded-full border border-sand-300 hover:border-terra-300 hover:text-terra-400 flex items-center justify-center text-ink-400 transition-colors"
               aria-label="Next Testimonial"
             >
-              &rarr;
+              →
             </button>
           </div>
         )}
