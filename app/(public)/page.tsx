@@ -44,13 +44,16 @@ export default async function HomePage() {
       {/* ── HERO ── */}
       <section className="relative min-h-[88vh] flex items-end justify-center overflow-hidden bg-sand-200">
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/assets/631734611_17911290213317246_3639787322669815310_n.jpg"
-            alt="Lunora Candles"
-            fill
-            className="object-cover opacity-60"
-            priority
-          />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-60"
+          >
+            <source src="/assets/create_Studio_product_videogra.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           <div className="absolute inset-0 bg-gradient-to-t from-ink-700/80 via-ink-700/20 to-transparent" />
         </div>
 
