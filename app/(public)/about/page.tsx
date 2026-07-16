@@ -5,108 +5,187 @@ import ScrollReveal from '@/components/public/ScrollReveal';
 
 export default function AboutPage() {
   return (
-    <div className="space-y-20 pb-20">
-      
-      {/* Hero Banner */}
-      <section className="relative h-[40vh] flex items-center justify-center bg-charcoal-700">
+    <div className="pb-24">
+
+      {/* ── Hero Banner ── */}
+      <section className="relative h-[42vh] min-h-[280px] flex items-center justify-center overflow-hidden bg-ink-600">
         <div className="absolute inset-0 z-0">
-          <Image 
+          <Image
             src="/assets/552807669_1339286778208115_6571929007844017528_n.jpg"
-            alt="Handcrafting candles in Galle"
+            alt="Lunora Studio"
             fill
-            className="object-cover opacity-35"
+            className="object-cover opacity-30"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-700 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink-700 via-ink-700/40 to-transparent" />
         </div>
-        <div className="container relative z-10 text-center space-y-3">
-          <h1 className="text-display text-4xl sm:text-5xl font-light text-white">Our Story & Studio</h1>
-          <p className="text-xs font-ui uppercase tracking-widest text-gold-300">Poured in Galle, Inspired by Nature</p>
+        <div className="relative z-10 text-center space-y-3 px-6">
+          <span className="label-caps text-sand-400 block">Galle, Sri Lanka</span>
+          <h1 className="text-display text-4xl sm:text-5xl font-light text-white">Our Story &amp; Studio</h1>
           <div className="divider-gold" />
+          <p className="label-caps text-sand-300">Poured with purpose. Crafted with love.</p>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <ScrollReveal direction="left">
-          <div className="space-y-6">
-            <h2 className="text-display text-3xl sm:text-4xl font-light text-charcoal-700 leading-tight">
-              How Lunora Candles <br />
-              <span className="italic font-serif text-gold-300">Began Its Journey</span>
-            </h2>
-            <p className="text-xs sm:text-sm text-charcoal-500 leading-relaxed font-body">
-              Founded along the historic coast of Galle, Sri Lanka, Lunora Candles was born out of a passion for natural home aromatics and artisanal design. We wanted to create home scents that were not only deeply luxurious, but also clean-burning and safe for families.
-            </p>
-            <p className="text-xs sm:text-sm text-charcoal-500 leading-relaxed font-body">
-              Every candle is hand-poured in our studio using natural soy wax sourced from sustainable farms, organic cotton-core and wooden wicks, and natural fragrance profiles that reflect the sea breezes, lush flora, and warm spices of Sri Lanka.
-            </p>
-          </div>
-        </ScrollReveal>
-        
-        <ScrollReveal direction="right" delay={0.25}>
-          <div className="relative aspect-square rounded-2xl overflow-hidden border border-cream-300 shadow-md">
-            <Image 
-              src="/assets/553805204_1339286811541445_7449795635161896691_n.jpg" 
-              alt="Our Pouring Process" 
-              fill 
-              className="object-cover" 
-            />
-          </div>
-        </ScrollReveal>
+      {/* ── Origin Story ── */}
+      <section className="container mx-auto px-4 sm:px-6 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <ScrollReveal direction="left">
+            <div className="space-y-6">
+              <span className="label-caps text-terra-400">How it began</span>
+              <h2 className="text-display text-3xl sm:text-4xl text-ink-600 leading-tight">
+                How Lunora Candles<br />
+                <span className="text-serif-italic text-terra-300">Began Its Journey</span>
+              </h2>
+              <div className="w-10 h-px bg-terra-300" />
+              <p className="font-ui text-sm text-ink-400 leading-relaxed">
+                Founded along the historic coast of Galle, Sri Lanka, Lunora Candles was born out of a deep passion for natural home aromatics and artisanal design. We wanted to create home scents that were not only deeply luxurious — but also clean-burning and safe for every family.
+              </p>
+              <p className="font-ui text-sm text-ink-400 leading-relaxed">
+                Every candle is hand-poured in our Galle studio using natural soy wax from sustainable farms, organic cotton-core and wooden wicks, and natural fragrance profiles that reflect the sea breezes, lush flora, and warm spices of Sri Lanka.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal direction="right" delay={0.2}>
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-terra-100">
+              <Image
+                src="/assets/553805204_1339286811541445_7449795635161896691_n.jpg"
+                alt="Hand-pouring candles in Galle studio"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </ScrollReveal>
+        </div>
       </section>
 
-      {/* Studio Philosophy Grid */}
-      <section className="bg-cream-100 border-y border-cream-200 py-16">
-        <div className="container mx-auto px-4">
+      {/* ── Meet the Founder ── */}
+      <section className="bg-sand-100 border-y border-sand-200 py-20">
+        <div className="container mx-auto px-4 sm:px-6">
           <ScrollReveal>
-            <div className="text-center max-w-xl mx-auto mb-12 space-y-3">
-              <h2 className="text-display text-3xl text-charcoal-700">Studio Philosophy</h2>
+            <div className="text-center mb-14 space-y-2">
+              <span className="label-caps text-terra-400">The visionary behind Lunora</span>
+              <h2 className="text-display text-3xl sm:text-4xl text-ink-600">Meet the Founder</h2>
               <div className="divider-gold" />
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <ScrollReveal delay={0.15}>
-              <div className="space-y-3">
-                <h3 className="font-display text-xl font-semibold text-charcoal-700">Artisanal Honesty</h3>
-                <p className="text-xs text-charcoal-400 leading-relaxed font-body">
-                  We make our products by hand, batch by batch. We do not use bulk machinery or chemical binders, prioritizing the slow, honest, handcrafted way.
-                </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
+
+            {/* Photo — arch shaped */}
+            <ScrollReveal direction="left" delay={0.15}>
+              <div className="relative mx-auto max-w-sm">
+                {/* Decorative background circle */}
+                <div className="absolute -inset-4 bg-terra-100 rounded-full opacity-40 blur-2xl" />
+                <div className="relative arch-container aspect-[3/4] overflow-hidden bg-terra-100 shadow-lg">
+                  <Image
+                    src="/assets/founder-kalana-udara.jpg"
+                    alt="Kalana Udara — Founder & CEO, Lunora Candles"
+                    fill
+                    className="object-cover object-top"
+                    priority
+                  />
+                </div>
               </div>
             </ScrollReveal>
-            <ScrollReveal delay={0.3}>
-              <div className="space-y-3">
-                <h3 className="font-display text-xl font-semibold text-charcoal-700">Earthy Stewardship</h3>
-                <p className="text-xs text-charcoal-400 leading-relaxed font-body">
-                  Our jars are designed to be thoroughly reused. Simply wash with hot soapy water when finished to repurpose for plants, storage, or decor.
+
+            {/* Bio */}
+            <ScrollReveal direction="right" delay={0.25}>
+              <div className="space-y-6">
+                <div className="space-y-1">
+                  <h3 className="text-display text-4xl text-ink-600">Kalana Udara</h3>
+                  <p className="label-caps text-terra-400">Founder &amp; CEO · Lunora Candles</p>
+                </div>
+
+                <div className="flex items-center gap-2 label-caps text-ink-400">
+                  <span>📍</span>
+                  <span>Galle, Sri Lanka</span>
+                </div>
+
+                <div className="w-10 h-px bg-terra-300" />
+
+                <p className="font-ui text-sm text-ink-400 leading-relaxed">
+                  Kalana Udara is the heart and soul behind Lunora Candles. Growing up along the sun-soaked coast of Galle, he developed a profound appreciation for the natural fragrances of the island — the salt air, tropical blooms, and warm spices of the south.
                 </p>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.45}>
-              <div className="space-y-3">
-                <h3 className="font-display text-xl font-semibold text-charcoal-700">Local Integrity</h3>
-                <p className="text-xs text-charcoal-400 leading-relaxed font-body">
-                  We support our local economy, hiring Galle craftsmen and printing packaging locally to strengthen Sri Lankan entrepreneurship.
+                <p className="font-ui text-sm text-ink-400 leading-relaxed">
+                  Driven by a desire to bring that sensory richness into every Sri Lankan home, Kalana founded Lunora with a single promise: to create candles that are as honest and beautiful as the land that inspires them. Today, each hand-poured creation reflects his commitment to natural ingredients, artisanal craft, and timeless elegance.
                 </p>
+
+                {/* Quote */}
+                <blockquote className="border-l-2 border-terra-300 pl-5 py-2">
+                  <p className="text-display text-lg text-ink-500 italic leading-snug">
+                    "Every candle we make is a little piece of Galle — its warmth, its calm, its stories."
+                  </p>
+                  <cite className="label-caps text-terra-400 mt-2 block not-italic">— Kalana Udara</cite>
+                </blockquote>
+
+                <div className="flex gap-3 pt-2">
+                  <Link href="/contact" className="btn btn-terra text-xs">
+                    Get In Touch
+                  </Link>
+                  <Link href="/shop" className="btn btn-outline text-xs">
+                    Explore Candles
+                  </Link>
+                </div>
               </div>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* Contact CTA */}
-      <section className="container mx-auto px-4 text-center max-w-2xl space-y-6">
+      {/* ── Studio Philosophy ── */}
+      <section className="container mx-auto px-4 sm:px-6 py-20">
         <ScrollReveal>
-          <div className="space-y-6">
-            <h2 className="text-display text-3xl font-light text-charcoal-700">Visit Our Studio</h2>
-            <p className="text-xs sm:text-sm text-charcoal-500 leading-relaxed font-body">
-              We love meeting fellow fragrance lovers. Stop by our Dowata, Galle studio to browse fragrances, experience the pours in real-time, or design your own custom scents.
+          <div className="text-center mb-14 space-y-2">
+            <h2 className="text-display text-3xl sm:text-4xl text-ink-600">Studio Philosophy</h2>
+            <div className="divider-gold" />
+          </div>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          {[
+            {
+              icon: '🤲',
+              title: 'Artisanal Honesty',
+              desc: 'We make our products by hand, batch by batch — no bulk machinery, no shortcuts. Just the slow, honest, handcrafted way.',
+            },
+            {
+              icon: '🌱',
+              title: 'Earthy Stewardship',
+              desc: 'Our jars are designed to be reused. Wash with hot soapy water when finished and repurpose as plant pots, storage, or decor.',
+            },
+            {
+              icon: '🏡',
+              title: 'Local Integrity',
+              desc: 'We support our local economy — hiring Galle craftsmen and printing packaging locally to strengthen Sri Lankan entrepreneurship.',
+            },
+          ].map((item, i) => (
+            <ScrollReveal key={i} delay={0.15 * (i + 1)}>
+              <div className="bg-white border border-sand-200 rounded-2xl p-8 space-y-4 hover:shadow-md transition-shadow">
+                <div className="text-3xl">{item.icon}</div>
+                <h3 className="font-display text-xl text-ink-600">{item.title}</h3>
+                <p className="font-ui text-xs text-ink-400 leading-relaxed">{item.desc}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Visit CTA ── */}
+      <section className="bg-ink-600 py-16">
+        <ScrollReveal>
+          <div className="container mx-auto px-4 sm:px-6 text-center max-w-2xl space-y-6">
+            <h2 className="text-display text-3xl font-light text-white">Visit Our Studio</h2>
+            <div className="w-10 h-px bg-terra-300 mx-auto" />
+            <p className="font-ui text-sm text-sand-300 leading-relaxed">
+              We love meeting fellow fragrance lovers. Stop by our Dowata, Galle studio to browse fragrances, experience live candle pours, or design your own custom scents.
             </p>
-            <div className="pt-4 flex justify-center gap-4">
-              <Link href="/contact" className="btn btn-primary text-xs tracking-widest uppercase">
+            <div className="flex justify-center gap-4 pt-2">
+              <Link href="/contact" className="btn btn-terra">
                 Get Directions
               </Link>
-              <Link href="/shop" className="btn btn-outline text-xs tracking-widest uppercase">
+              <Link href="/shop" className="btn btn-outline border-white/30 text-white hover:bg-white/10">
                 Shop Online
               </Link>
             </div>
