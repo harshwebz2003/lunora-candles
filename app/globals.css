@@ -637,3 +637,15 @@
   border-radius: 50%;
 }
 
+/* ─────────────────────────────────────────────
+   Mobile Smooth Horizontal Scroll Utilities
+   ───────────────────────────────────────────── */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+

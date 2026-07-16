@@ -77,12 +77,12 @@ export default async function HomePage() {
             <p className="label-caps mt-2">Check back soon</p>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-10">
+          <div className="flex overflow-x-auto gap-5 snap-x snap-mandatory pb-6 hide-scrollbar md:grid md:grid-cols-3 lg:grid-cols-4 md:overflow-x-visible md:pb-0">
             {products.map((product, idx) => {
               const img = product.images[0]?.url || '/assets/552807669_1339286778208115_6571929007844017528_n.jpg';
               const tint = ARCH_TINTS[idx % ARCH_TINTS.length];
               return (
-                <div key={product.id} className="flex flex-col">
+                <div key={product.id} className="flex flex-col w-[240px] shrink-0 snap-align-start md:w-auto md:shrink md:snap-align-none">
                   <ScrollReveal delay={0.08 * (idx % 4)} className="h-full flex flex-col">
                     <Link href={`/products/${product.slug}`} className="product-card group h-full flex flex-col justify-between">
                       <div>
@@ -92,7 +92,9 @@ export default async function HomePage() {
                             src={img}
                             alt={product.title}
                             fill
+                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            priority={idx < 4}
                           />
                         </div>
                         {/* Text below arch */}
@@ -140,13 +142,13 @@ export default async function HomePage() {
             </div>
           </ScrollReveal>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="flex overflow-x-auto gap-6 snap-x snap-mandatory pb-6 hide-scrollbar md:grid md:grid-cols-3 md:overflow-x-visible md:pb-0">
             {[
               { title: 'Pure Soy Wax', desc: '100% natural, paraffin-free soy wax sourced from sustainable farms. Cleaner burn, longer lasting.' },
               { title: 'Wooden Wicks', desc: 'Organic cotton-core and wooden wicks that crackle softly as they burn — a true sensory experience.' },
               { title: 'Gift Ready', desc: 'Every candle arrives in elegant, reusable packaging, perfect for weddings, events, and personal gifting.' },
             ].map((item, i) => (
-              <div key={i} className="flex flex-col">
+              <div key={i} className="flex flex-col w-[280px] shrink-0 snap-align-start md:w-auto md:shrink md:snap-align-none">
                 <ScrollReveal 
                   delay={0.1 * i}
                   className="space-y-4 px-6 py-10 bg-white border border-sand-200 rounded-2xl hover:shadow-md transition-all duration-300 flex flex-col items-center text-center h-full justify-between"
@@ -250,6 +252,7 @@ export default async function HomePage() {
               src="/assets/632129514_17911290222317246_1212543984744105027_n.jpg"
               alt="Custom wedding favors"
               fill
+              sizes="(max-width: 1024px) 100vw, 80vw"
               className="object-cover opacity-20"
             />
           </div>
