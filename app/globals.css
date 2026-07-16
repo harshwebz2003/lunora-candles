@@ -1,77 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 @source "../components";
 @source "../context";
 
 /* ─────────────────────────────────────────────
-   Lunora Candles — Design Tokens (Tailwind v4)
+   Lunora Candles — Design Tokens (Figma Redesign)
    ───────────────────────────────────────────── */
 
 @theme {
   /* ── Typography ── */
   --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-body: "Lato", "Inter", system-ui, sans-serif;
-  --font-ui: "Inter", system-ui, sans-serif;
+  --font-body:    "Jost", system-ui, sans-serif;
+  --font-ui:      "Jost", system-ui, sans-serif;
 
-  /* ── Brand Palette ── */
-  /* Cream / Warm whites */
-  --color-cream-50:  #FDFAF5;
-  --color-cream-100: #FAF5EB;
-  --color-cream-200: #F5EDD8;
-  --color-cream-300: #EDE0C4;
+  /* ── Brand Palette (Warm Sand Figma) ── */
+  /* Background / Parchment */
+  --color-sand-50:  #FDFAF6;
+  --color-sand-100: #F8F2E8;
+  --color-sand-200: #F0E5D2;
+  --color-sand-300: #E4D3B8;
+  --color-sand-400: #C8A882;
+  --color-sand-500: #A8845A;
 
-  /* Gold / Warm amber */
-  --color-gold-100:  #F7E7C1;
+  /* Terracotta / Warm Amber */
+  --color-terra-100: #F2E2D0;
+  --color-terra-200: #E0C09A;
+  --color-terra-300: #C4956A;
+  --color-terra-400: #A67048;
+  --color-terra-500: #8A5530;
+
+  /* Gold */
+  --color-gold-100:  #F7E9CE;
   --color-gold-200:  #EDCC87;
   --color-gold-300:  #D4A84B;
   --color-gold-400:  #B8892E;
   --color-gold-500:  #9A6E1A;
 
-  /* Warm charcoal */
-  --color-charcoal-50:  #F5F0EB;
-  --color-charcoal-100: #E0D5C8;
-  --color-charcoal-200: #B8A898;
-  --color-charcoal-300: #8A7468;
-  --color-charcoal-400: #5C4A3D;
-  --color-charcoal-500: #3D3028;
-  --color-charcoal-600: #2A1F17;
-  --color-charcoal-700: #1A120C;
+  /* Charcoal / Near Black */
+  --color-ink-50:  #F4F0EC;
+  --color-ink-100: #D8CEC4;
+  --color-ink-200: #B0A090;
+  --color-ink-300: #887060;
+  --color-ink-400: #604840;
+  --color-ink-500: #3C2E28;
+  --color-ink-600: #241A14;
+  --color-ink-700: #140E08;
 
-  /* Sage greens */
+  /* Legacy aliases for existing code */
+  --color-cream-50:  #FDFAF6;
+  --color-cream-100: #F8F2E8;
+  --color-cream-200: #F0E5D2;
+  --color-cream-300: #E4D3B8;
+  --color-charcoal-50:  #F4F0EC;
+  --color-charcoal-100: #D8CEC4;
+  --color-charcoal-200: #B0A090;
+  --color-charcoal-300: #887060;
+  --color-charcoal-400: #604840;
+  --color-charcoal-500: #3C2E28;
+  --color-charcoal-600: #241A14;
+  --color-charcoal-700: #140E08;
   --color-sage-100: #E8EDE4;
   --color-sage-200: #C8D4C0;
   --color-sage-300: #9BAF8E;
   --color-sage-400: #718A63;
-
-  /* Rose / blush */
   --color-rose-100: #F5E6E0;
-  --color-rose-200: #E8C9C0;
-  --color-rose-300: #D4A090;
   --color-rose-400: #B87868;
 
   /* ── Semantic Tokens ── */
-  --color-background:      var(--color-cream-50);
-  --color-surface:         var(--color-cream-100);
-  --color-surface-raised:  #FFFFFF;
-  --color-border:          var(--color-cream-300);
-  --color-border-subtle:   var(--color-cream-200);
+  --color-background:     var(--color-sand-50);
+  --color-surface:        var(--color-sand-100);
+  --color-surface-raised: #FFFFFF;
+  --color-border:         var(--color-sand-300);
+  --color-border-subtle:  var(--color-sand-200);
 
-  --color-text-primary:    var(--color-charcoal-600);
-  --color-text-secondary:  var(--color-charcoal-400);
-  --color-text-muted:      var(--color-charcoal-300);
-  --color-text-inverse:    var(--color-cream-50);
+  --color-text-primary:   var(--color-ink-600);
+  --color-text-secondary: var(--color-ink-400);
+  --color-text-muted:     var(--color-ink-300);
+  --color-text-inverse:   var(--color-sand-50);
 
-  --color-accent:          var(--color-gold-300);
-  --color-accent-hover:    var(--color-gold-400);
-  --color-accent-light:    var(--color-gold-100);
+  --color-accent:         var(--color-terra-300);
+  --color-accent-hover:   var(--color-terra-400);
+  --color-accent-light:   var(--color-terra-100);
 
-  --color-admin-bg:        var(--color-charcoal-600);
-  --color-admin-surface:   var(--color-charcoal-500);
-  --color-admin-border:    var(--color-charcoal-400);
+  --color-admin-bg:       var(--color-ink-600);
+  --color-admin-surface:  var(--color-ink-500);
+  --color-admin-border:   var(--color-ink-400);
 
-  /* ── Spacing Scale ── */
-  --spacing-section:   5rem;       /* 80px — vertical section padding */
-  --spacing-container: 1.25rem;    /* 20px — horizontal page margin   */
+  /* ── Spacing ── */
+  --spacing-section:   5rem;
+  --spacing-container: 1.25rem;
 
   /* ── Border Radius ── */
   --radius-sm:   0.25rem;
@@ -79,17 +96,18 @@
   --radius-lg:   1rem;
   --radius-xl:   1.5rem;
   --radius-pill: 999px;
+  --radius-arch: 120px 120px 0 0;
 
   /* ── Shadows ── */
-  --shadow-sm:  0 1px 3px rgba(60, 40, 20, 0.08);
-  --shadow-md:  0 4px 16px rgba(60, 40, 20, 0.12);
-  --shadow-lg:  0 12px 40px rgba(60, 40, 20, 0.18);
-  --shadow-glow: 0 0 24px rgba(212, 168, 75, 0.25);
+  --shadow-sm:  0 1px 3px rgba(60, 40, 20, 0.06);
+  --shadow-md:  0 4px 20px rgba(60, 40, 20, 0.10);
+  --shadow-lg:  0 12px 40px rgba(60, 40, 20, 0.14);
+  --shadow-glow: 0 0 20px rgba(196, 149, 106, 0.30);
 
   /* ── Transitions ── */
   --transition-fast:   150ms ease;
-  --transition-base:   250ms ease;
-  --transition-slow:   400ms ease;
+  --transition-base:   280ms ease;
+  --transition-slow:   450ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ─────────────────────────────────────────────
@@ -112,105 +130,101 @@ body {
   background-color: var(--color-background);
   color: var(--color-text-primary);
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 0.9375rem;
   line-height: 1.65;
 }
 
-/* ── Headings default to display font ── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  line-height: 1.2;
-  color: var(--color-charcoal-600);
-  font-weight: 500;
+  line-height: 1.15;
 }
 
-/* ── Link reset ── */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* ── Image reset ── */
 img, video {
-  max-width: 100%;
   display: block;
-}
-
-/* ── Button reset ── */
-button {
-  cursor: pointer;
-  border: none;
-  background: none;
-  font-family: inherit;
+  max-width: 100%;
 }
 
 /* ─────────────────────────────────────────────
-   Utility Classes
+   Layout Utilities
    ───────────────────────────────────────────── */
 
-/* Container */
 .container {
   width: 100%;
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--spacing-container);
-  padding-right: var(--spacing-container);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
-@media (min-width: 640px) {
-  .container { padding-left: 2rem; padding-right: 2rem; }
-}
-@media (min-width: 1024px) {
-  .container { padding-left: 4rem; padding-right: 4rem; }
-}
-
-/* Section vertical padding */
-.section-padding {
-  padding-top: var(--spacing-section);
-  padding-bottom: var(--spacing-section);
+/* ── Arch Card ── */
+.arch-container {
+  border-radius: 120px 120px 0 0;
+  overflow: hidden;
 }
 
-/* Text styles */
+.arch-container-sm {
+  border-radius: 80px 80px 0 0;
+  overflow: hidden;
+}
+
+/* ─────────────────────────────────────────────
+   Typography
+   ───────────────────────────────────────────── */
+
 .text-display {
   font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.text-serif-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
 }
 
 .text-ui {
   font-family: var(--font-ui);
+  font-weight: 400;
 }
 
-/* Gradient text */
-.text-gold-gradient {
-  background: linear-gradient(135deg, var(--color-gold-300), var(--color-gold-500));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.label-caps {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
 }
 
-/* Decorative dividers */
+/* ─────────────────────────────────────────────
+   Divider
+   ───────────────────────────────────────────── */
+
 .divider-gold {
-  width: 3.5rem;
-  height: 1.5px;
-  background: linear-gradient(to right, var(--color-gold-200), var(--color-gold-400), var(--color-gold-200));
+  width: 3rem;
+  height: 1px;
+  background: var(--color-terra-300);
   margin: 0.75rem auto;
 }
 
-/* Card base */
-.card {
-  background: var(--color-surface-raised);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  transition: box-shadow var(--transition-base), transform var(--transition-base);
-}
-.card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+.divider-gold-left {
+  width: 2.5rem;
+  height: 1px;
+  background: var(--color-terra-300);
+  margin: 0.75rem 0;
 }
 
-/* Buttons */
+/* ─────────────────────────────────────────────
+   Buttons
+   ───────────────────────────────────────────── */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -219,66 +233,123 @@ button {
   padding: 0.75rem 2rem;
   border-radius: var(--radius-pill);
   font-family: var(--font-ui);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  cursor: pointer;
   transition: all var(--transition-base);
+  cursor: pointer;
+  border: 1.5px solid transparent;
   white-space: nowrap;
 }
 
 .btn-primary {
-  background: var(--color-gold-300);
-  color: var(--color-charcoal-700);
-  border: 1.5px solid var(--color-gold-300);
+  background: var(--color-ink-600);
+  color: var(--color-sand-50);
+  border-color: var(--color-ink-600);
 }
 .btn-primary:hover {
-  background: var(--color-gold-400);
-  border-color: var(--color-gold-400);
-  box-shadow: var(--shadow-glow);
+  background: var(--color-ink-500);
+  border-color: var(--color-ink-500);
   transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--color-charcoal-600);
-  border: 1.5px solid var(--color-charcoal-300);
+  color: var(--color-ink-600);
+  border-color: var(--color-ink-400);
 }
 .btn-outline:hover {
-  border-color: var(--color-gold-300);
-  color: var(--color-gold-400);
+  background: var(--color-ink-600);
+  color: var(--color-sand-50);
+  transform: translateY(-1px);
+}
+
+.btn-terra {
+  background: var(--color-terra-300);
+  color: #fff;
+  border-color: var(--color-terra-300);
+}
+.btn-terra:hover {
+  background: var(--color-terra-400);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-glow);
 }
 
 .btn-ghost {
   background: transparent;
-  color: var(--color-gold-400);
-  border: 1.5px solid transparent;
+  color: var(--color-terra-400);
+  border-color: transparent;
   padding: 0.5rem 0.75rem;
 }
 .btn-ghost:hover {
-  background: var(--color-gold-100);
+  background: var(--color-terra-100);
 }
 
 .btn-dark {
-  background: var(--color-charcoal-600);
-  color: var(--color-cream-50);
-  border: 1.5px solid var(--color-charcoal-600);
+  background: var(--color-ink-600);
+  color: var(--color-sand-50);
+  border-color: var(--color-ink-600);
 }
 .btn-dark:hover {
-  background: var(--color-charcoal-700);
+  background: var(--color-ink-700);
 }
 
-/* Badge */
+/* ─────────────────────────────────────────────
+   Cards
+   ───────────────────────────────────────────── */
+
+.card {
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* ── Product Arch Card ── */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.product-card-arch {
+  position: relative;
+  border-radius: 120px 120px 0 0;
+  overflow: hidden;
+  background: var(--color-terra-100);
+}
+
+.product-card-arch-sm {
+  border-radius: 80px 80px 0 0;
+  overflow: hidden;
+  background: var(--color-terra-100);
+}
+
+/* ─────────────────────────────────────────────
+   Badge
+   ───────────────────────────────────────────── */
+
 .badge {
   display: inline-flex;
   align-items: center;
   padding: 0.2rem 0.65rem;
   border-radius: var(--radius-pill);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+.badge-terra {
+  background: var(--color-terra-100);
+  color: var(--color-terra-400);
 }
 .badge-gold {
   background: var(--color-gold-100);
@@ -289,11 +360,14 @@ button {
   color: var(--color-sage-400);
 }
 .badge-charcoal {
-  background: var(--color-charcoal-100);
-  color: var(--color-charcoal-500);
+  background: var(--color-ink-50);
+  color: var(--color-ink-500);
 }
 
-/* Input base */
+/* ─────────────────────────────────────────────
+   Input
+   ───────────────────────────────────────────── */
+
 .input {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -302,19 +376,22 @@ button {
   background: var(--color-surface-raised);
   color: var(--color-text-primary);
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   outline: none;
 }
 .input:focus {
-  border-color: var(--color-gold-300);
-  box-shadow: 0 0 0 3px rgba(212, 168, 75, 0.15);
+  border-color: var(--color-terra-300);
+  box-shadow: 0 0 0 3px rgba(196, 149, 106, 0.18);
 }
 .input::placeholder {
   color: var(--color-text-muted);
 }
 
-/* Skeleton animation */
+/* ─────────────────────────────────────────────
+   Skeleton
+   ───────────────────────────────────────────── */
+
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
@@ -323,55 +400,57 @@ button {
   border-radius: var(--radius-md);
   background: linear-gradient(
     90deg,
-    var(--color-cream-200) 25%,
-    var(--color-cream-100) 50%,
-    var(--color-cream-200) 75%
+    var(--color-sand-200) 25%,
+    var(--color-sand-100) 50%,
+    var(--color-sand-200) 75%
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
 
-/* Fade-in animation */
+/* ─────────────────────────────────────────────
+   Animations
+   ───────────────────────────────────────────── */
+
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 .animate-fade-in {
-  animation: fadeIn 0.5s var(--transition-base) both;
+  animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* Stagger children */
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.animate-fade-in-left {
+  animation: fadeInLeft 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
-.stagger-children > *:nth-child(2) { animation-delay: 80ms; }
-.stagger-children > *:nth-child(3) { animation-delay: 160ms; }
-.stagger-children > *:nth-child(4) { animation-delay: 240ms; }
-.stagger-children > *:nth-child(5) { animation-delay: 320ms; }
-.stagger-children > *:nth-child(6) { animation-delay: 400ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 100ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 200ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 300ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 400ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 500ms; }
 
 /* ─────────────────────────────────────────────
-   Scrollbar Styling
+   Scrollbar
    ───────────────────────────────────────────── */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-cream-100);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-charcoal-200);
-  border-radius: var(--radius-pill);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gold-300);
-}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--color-sand-100); }
+::-webkit-scrollbar-thumb { background: var(--color-sand-400); border-radius: var(--radius-pill); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-terra-300); }
 
 /* ─────────────────────────────────────────────
-   Admin Layout Dark Sidebar
+   Admin Sidebar
    ───────────────────────────────────────────── */
+
 .admin-sidebar {
-  background: var(--color-charcoal-600);
-  color: var(--color-cream-200);
+  background: var(--color-ink-600);
+  color: var(--color-sand-200);
 }
 .admin-sidebar-link {
   display: flex;
@@ -381,16 +460,16 @@ button {
   border-radius: var(--radius-md);
   font-size: 0.875rem;
   font-family: var(--font-ui);
-  color: var(--color-charcoal-200);
+  color: var(--color-sand-300);
   transition: all var(--transition-fast);
 }
 .admin-sidebar-link:hover,
 .admin-sidebar-link.active {
-  background: var(--color-charcoal-500);
-  color: var(--color-gold-200);
+  background: var(--color-ink-500);
+  color: var(--color-terra-200);
 }
 .admin-sidebar-link.active {
-  background: rgba(212, 168, 75, 0.15);
-  color: var(--color-gold-300);
-  border-left: 3px solid var(--color-gold-300);
+  background: rgba(196, 149, 106, 0.15);
+  color: var(--color-terra-200);
+  border-left: 3px solid var(--color-terra-300);
 }

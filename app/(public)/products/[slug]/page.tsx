@@ -4,15 +4,15 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { db } from '@/lib/db';
 import ProductDetailClient from '@/components/public/ProductDetailClient';
-import ProductMediaClient from '@/components/public/ProductMediaClient';
+import ScrollReveal from '@/components/public/ScrollReveal';
 
 export const revalidate = 0;
 
 interface PageProps {
-  params: Promise<{
-    slug: string;
-  }>;
+  params: Promise<{ slug: string }>;
 }
+
+const ARCH_TINTS = ['bg-terra-100', 'bg-gold-100', 'bg-sand-200', 'bg-sage-100'];
 
 export default async function ProductDetailPage({ params }: PageProps) {
   const { slug } = await params;
@@ -22,75 +22,98 @@ export default async function ProductDetailPage({ params }: PageProps) {
     include: { images: true },
   });
 
-  if (!product) {
-    notFound();
-  }
+  if (!product) notFound();
 
-  // Fetch related products (excluding current one)
   const relatedProducts = await db.product.findMany({
-    where: {
-      id: { not: product.id },
-    },
-    take: 3,
+    where: { id: { not: product.id } },
+    take: 4,
     include: { images: true },
   });
 
   const primaryImage = product.images[0]?.url || '/assets/552807669_1339286778208115_6571929007844017528_n.jpg';
+  const galleryImages = product.images.length > 0 ? product.images : [{ url: primaryImage, id: 0 }];
 
   return (
-    <div className="container mx-auto px-4 py-16 space-y-20">
-      
-      {/* Back Link */}
-      <div>
-        <Link href="/shop" className="text-xs font-ui uppercase tracking-widest text-charcoal-400 hover:text-gold-400 transition-colors">
-          &larr; Back to Shop
-        </Link>
+    <div className="pb-24">
+
+      {/* ── Breadcrumb ── */}
+      <div className="container mx-auto px-4 sm:px-6 pt-8 pb-6">
+        <nav className="flex items-center gap-2 label-caps text-ink-300">
+          <Link href="/" className="hover:text-terra-400 transition-colors">Home</Link>
+          <span>/</span>
+          <Link href="/shop" className="hover:text-terra-400 transition-colors">Products</Link>
+          <span>/</span>
+          <span className="text-ink-500">{product.title}</span>
+        </nav>
       </div>
 
-      {/* Main Details Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20">
-        
-        {/* Images Column */}
-        <ProductMediaClient 
-          images={product.images} 
-          title={product.title} 
-          fragrance={product.fragrance} 
-        />
+      {/* ── Main Product Area ── */}
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20">
 
-        {/* Content Column */}
-        <div className="space-y-6">
-          <div>
-            <h1 className="text-display text-4xl sm:text-5xl font-light text-charcoal-700 leading-tight">{product.title}</h1>
-            <p className="text-lg font-ui font-bold text-gold-500 mt-2">
-              LKR ${(product.price * 300).toLocaleString()}
-            </p>
-          </div>
-
-          <div className="divider-gold mx-0" />
-
-          {product.fragrance && (
-            <div className="space-y-1">
-              <span className="text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold">Fragrance Profile:</span>
-              <p className="text-xs font-ui text-sage-400 font-semibold uppercase">{product.fragrance}</p>
+          {/* Left: Gallery Thumbnails + Main Image */}
+          <div className="flex gap-4">
+            {/* Vertical thumbnail strip */}
+            <div className="flex flex-col gap-3 w-20 flex-shrink-0">
+              {galleryImages.slice(0, 4).map((img, i) => (
+                <div
+                  key={img.id ?? i}
+                  className={`relative aspect-square rounded-lg overflow-hidden border-2 cursor-pointer transition-all ${
+                    i === 0 ? 'border-terra-300 shadow-sm' : 'border-sand-200 hover:border-terra-200'
+                  }`}
+                >
+                  <Image src={img.url} alt={`${product.title} view ${i + 1}`} fill className="object-cover" />
+                </div>
+              ))}
             </div>
-          )}
 
-          <div className="space-y-2">
-            <span className="text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold">Description:</span>
-            <p className="text-xs text-charcoal-500 leading-relaxed font-body whitespace-pre-line">{product.description}</p>
+            {/* Main hero image */}
+            <div className="flex-1 relative rounded-2xl overflow-hidden bg-terra-100 aspect-[4/5]">
+              <Image
+                src={primaryImage}
+                alt={product.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
           </div>
 
-          <div className="pt-4 border-t border-cream-200 space-y-4">
-            <div className="flex items-center justify-between text-xs">
-              <span className="text-charcoal-400 font-ui font-bold uppercase tracking-wider">Availability:</span>
-              <span className={`font-ui font-bold uppercase tracking-wider ${product.stock > 0 ? 'text-sage-400' : 'text-rose-400'}`}>
-                {product.stock > 0 ? `In Stock (${product.stock} units)` : 'Out of Stock'}
+          {/* Right: Product Info */}
+          <div className="flex flex-col gap-6">
+            {/* Category tag */}
+            <span className="label-caps text-terra-400">
+              {product.fragrance ? `Fragrance: ${product.fragrance}` : 'Lunora Candles'}
+            </span>
+
+            {/* Title + Price */}
+            <div>
+              <h1 className="text-display text-4xl sm:text-5xl text-ink-600 leading-tight">
+                {product.title}
+              </h1>
+              <p className="font-ui text-xl font-medium text-ink-500 mt-3">
+                ${product.price.toFixed(2)} USD
+              </p>
+            </div>
+
+            <div className="w-12 h-px bg-terra-300" />
+
+            {/* Short description */}
+            <p className="font-ui text-sm text-ink-400 leading-relaxed">
+              {product.description?.split('\n')[0] || 'A beautifully handcrafted scented candle, poured in Galle, Sri Lanka using 100% natural soy wax and premium fragrance oils.'}
+            </p>
+
+            {/* Stock */}
+            <div className="flex items-center gap-2">
+              <span className={`h-2 w-2 rounded-full ${product.stock > 0 ? 'bg-sage-400' : 'bg-rose-400'}`} />
+              <span className="label-caps">
+                {product.stock > 0 ? `In Stock — ${product.stock} units` : 'Out of Stock'}
               </span>
             </div>
 
-            {/* Interactive Client Add to Cart & Qty Controls */}
+            {/* Add to Cart */}
             {product.stock > 0 && (
-              <ProductDetailClient 
+              <ProductDetailClient
                 id={product.id}
                 slug={product.slug}
                 title={product.title}
@@ -98,53 +121,91 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 image={primaryImage}
               />
             )}
-          </div>
 
-          {/* Quick Care Highlight Box */}
-          <div className="bg-cream-100 p-4 rounded-xl border border-cream-200 text-[11px] leading-relaxed text-charcoal-500 font-body">
-            <strong className="text-gold-500 block mb-1">🕯️ Clean Burn Guarantee:</strong>
-            Handcrafted with 100% pure organic soy wax and lead-free cotton wicks, ensuring a non-toxic, clean burn that is safe for your pets and family.
+            {/* Clean burn guarantee */}
+            <div className="bg-sand-100 border border-sand-200 rounded-xl p-4">
+              <p className="label-caps text-terra-400 mb-1.5">🕯️ Clean Burn Guarantee</p>
+              <p className="font-ui text-xs text-ink-400 leading-relaxed">
+                Handcrafted with 100% organic soy wax and lead-free cotton wicks — non-toxic and safe for your family and pets.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Related Products */}
-      {relatedProducts.length > 0 && (
-        <div className="space-y-8 pt-12 border-t border-cream-200">
-          <h2 className="text-display text-2xl sm:text-3xl text-charcoal-700">You Might Also Love</h2>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            {relatedProducts.map((rel) => {
-              const relImg = rel.images[0]?.url || '/assets/552807669_1339286778208115_6571929007844017528_n.jpg';
-              return (
-                <div key={rel.id} className="card flex flex-col justify-between group">
-                  <div>
-                    <Link href={`/products/${rel.slug}`} className="relative block aspect-square overflow-hidden bg-cream-100">
-                      <Image 
-                        src={relImg} 
-                        alt={rel.title} 
-                        fill 
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
+        {/* ── Description Tabs ── */}
+        <div className="mt-16 border-t border-sand-200 pt-12">
+          <div className="flex gap-8 border-b border-sand-200 mb-8">
+            {['Description', 'Specification', 'Ingredients', 'Instructions'].map((tab, i) => (
+              <button
+                key={tab}
+                className={`font-ui text-xs uppercase tracking-widest pb-3 transition-colors border-b-2 -mb-px ${
+                  i === 0
+                    ? 'border-ink-600 text-ink-600'
+                    : 'border-transparent text-ink-300 hover:text-ink-500'
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          <div className="max-w-2xl space-y-4">
+            {product.description ? (
+              product.description.split('\n\n').map((para, i) => (
+                <p key={i} className="font-ui text-sm text-ink-400 leading-relaxed">{para}</p>
+              ))
+            ) : (
+              <>
+                <p className="font-ui text-sm text-ink-400 leading-relaxed">
+                  This beautifully crafted candle from Lunora is a remarkable addition to any home fragrance collection. The exquisite glass jar candle options you see at our studio reflect the finest artisan craft — poured from our Galle studio with care.
+                </p>
+                <h4 className="font-display text-lg text-ink-600 mt-6">Two Wick Soy Candle</h4>
+                <p className="font-ui text-sm text-ink-400 leading-relaxed">
+                  This candle features a high-quality soy wax candle that has an RRS set for widened burning. The wick between candles is not in touch to your home but releases a warming smell while crafting a wonderful and ever-born burn.
+                </p>
+                <h4 className="font-display text-lg text-ink-600 mt-4">Calm & Relieve Aroma</h4>
+                <p className="font-ui text-sm text-ink-400 leading-relaxed">
+                  Light this candle when you come along on quiet days, as it helps better experience. It can help you meditate, promote your ideas, reduce your stress, and put you in good mood. Our lightweight candles are the highlight and featuring a unique blend of premium natural fragrance oils.
+                </p>
+              </>
+            )}
+          </div>
+        </div>
+
+        {/* ── Related Products ── */}
+        {relatedProducts.length > 0 && (
+          <div className="mt-20 pt-12 border-t border-sand-200">
+            <ScrollReveal>
+              <h2 className="text-display text-3xl text-ink-600 mb-10">Related Products</h2>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
+              {relatedProducts.map((rel, idx) => {
+                const relImg = rel.images[0]?.url || '/assets/552807669_1339286778208115_6571929007844017528_n.jpg';
+                const tint = ARCH_TINTS[idx % ARCH_TINTS.length];
+                return (
+                  <ScrollReveal key={rel.id} delay={0.1 * idx} className="flex flex-col">
+                    <Link href={`/products/${rel.slug}`} className="product-card group">
+                      <div className={`product-card-arch-sm ${tint} aspect-[3/4] relative`}>
+                        <Image
+                          src={relImg}
+                          alt={rel.title}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="pt-3 text-center space-y-1 px-1">
+                        <h3 className="label-caps text-ink-600 font-medium">{rel.title.toUpperCase()}</h3>
+                        <p className="font-ui text-sm text-ink-500">${rel.price.toFixed(2)}</p>
+                      </div>
                     </Link>
-                    <div className="p-4 space-y-1">
-                      <h3 className="font-display text-lg font-semibold text-charcoal-700">
-                        <Link href={`/products/${rel.slug}`} className="hover:text-gold-400 transition-colors">
-                          {rel.title}
-                        </Link>
-                      </h3>
-                      <p className="text-xs font-ui font-bold text-gold-400">
-                        LKR ${(rel.price * 300).toLocaleString()}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+                  </ScrollReveal>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      )}
-
+        )}
+      </div>
     </div>
   );
 }

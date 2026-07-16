@@ -2,94 +2,102 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-charcoal-700 text-cream-100 border-t border-charcoal-500/40">
-      {/* Main Footer Links */}
-      <div className="container mx-auto py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        
-        {/* Brand Info */}
-        <div className="space-y-4">
-          <div className="flex flex-col">
-            <span className="font-display text-2xl tracking-widest font-semibold text-white leading-none">LUNORA</span>
-            <span className="font-ui text-[9px] tracking-[0.3em] text-gold-300 font-medium uppercase mt-1">C A N D L E S</span>
-          </div>
-          <p className="text-xs text-charcoal-200 leading-relaxed font-body">
-            Luxurious handcrafted scented soy candles inspired by the rich nature and coastal breezes of Galle, Sri Lanka. Safe, non-toxic, and slow-burning.
+    <footer className="bg-sand-100 border-t border-sand-200">
+      <div className="container mx-auto py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        {/* Brand */}
+        <div className="space-y-4 sm:col-span-2 lg:col-span-1">
+          <Link href="/" className="flex items-center gap-2.5">
+            <div className="relative h-9 w-9 rounded-full overflow-hidden border border-sand-300">
+              <Image src="/logo.jpg" alt="Lunora" fill className="object-cover" />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="font-display text-sm tracking-[0.25em] font-semibold text-ink-600 uppercase">Lunora</span>
+              <span className="font-ui text-[8px] tracking-[0.3em] text-terra-400 uppercase">Candles</span>
+            </div>
+          </Link>
+          <p className="font-ui text-xs text-ink-300 leading-relaxed max-w-[220px]">
+            Luxurious handcrafted soy candles inspired by the rich nature and coastal breezes of Galle, Sri Lanka.
           </p>
-          <div className="flex gap-4 pt-2">
-            <a 
-              href="https://facebook.com/lunoracandles" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-xs font-ui tracking-wider text-gold-300 hover:text-gold-200 transition-colors"
-            >
-              Facebook
-            </a>
-            <a 
-              href="https://instagram.com/lunoracandles" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-xs font-ui tracking-wider text-gold-300 hover:text-gold-200 transition-colors"
-            >
-              Instagram
-            </a>
+          <div className="flex gap-4 pt-1">
+            <a href="https://facebook.com/lunoracandles" target="_blank" rel="noopener noreferrer" className="label-caps hover:text-terra-400 transition-colors">Facebook</a>
+            <a href="https://instagram.com/lunoracandles" target="_blank" rel="noopener noreferrer" className="label-caps hover:text-terra-400 transition-colors">Instagram</a>
           </div>
         </div>
 
-        {/* Quick Links */}
-        <div className="space-y-4">
-          <h4 className="font-display text-base font-semibold text-white tracking-wider">Shop & Explore</h4>
-          <ul className="space-y-2 text-xs text-charcoal-200">
-            <li><Link href="/shop" className="hover:text-gold-300 transition-colors">Our Candle Collections</Link></li>
-            <li><Link href="/fragrance-guide" className="hover:text-gold-300 transition-colors">Fragrance & Scent Guide</Link></li>
-            <li><Link href="/candle-care" className="hover:text-gold-300 transition-colors">Candle Care & Burn Safety</Link></li>
-            <li><Link href="/custom-orders" className="hover:text-gold-300 transition-colors">Custom Favors & Orders</Link></li>
+        {/* Plant Trees */}
+        <div className="space-y-3">
+          <h4 className="label-caps text-ink-500">Shop</h4>
+          <ul className="space-y-2.5">
+            {[
+              { href: '/shop',            label: 'All Candles' },
+              { href: '/scent-finder',    label: 'Scent Finder Quiz' },
+              { href: '/fragrance-guide', label: 'Fragrance Guide' },
+              { href: '/custom-orders',   label: 'Custom Orders' },
+            ].map(l => (
+              <li key={l.href}>
+                <Link href={l.href} className="font-ui text-xs text-ink-400 hover:text-terra-400 transition-colors">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* Customer Support */}
-        <div className="space-y-4">
-          <h4 className="font-display text-base font-semibold text-white tracking-wider">Information</h4>
-          <ul className="space-y-2 text-xs text-charcoal-200">
-            <li><Link href="/about" className="hover:text-gold-300 transition-colors">Our Story & Studio</Link></li>
-            <li><Link href="/testimonials" className="hover:text-gold-300 transition-colors">Customer Testimonials</Link></li>
-            <li><Link href="/faq" className="hover:text-gold-300 transition-colors">Frequently Asked Questions</Link></li>
-            <li><Link href="/delivery" className="hover:text-gold-300 transition-colors">Delivery & Return Policies</Link></li>
+        {/* Information */}
+        <div className="space-y-3">
+          <h4 className="label-caps text-ink-500">Information</h4>
+          <ul className="space-y-2.5">
+            {[
+              { href: '/about',         label: 'Our Story' },
+              { href: '/faq',           label: 'FAQ' },
+              { href: '/candle-care',   label: 'Candle Care' },
+              { href: '/delivery',      label: 'Shipping & Returns' },
+              { href: '/contact',       label: 'Contact Us' },
+            ].map(l => (
+              <li key={l.href}>
+                <Link href={l.href} className="font-ui text-xs text-ink-400 hover:text-terra-400 transition-colors">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* Contact info & Galle Address */}
-        <div className="space-y-4">
-          <h4 className="font-display text-base font-semibold text-white tracking-wider">The Galle Studio</h4>
-          <div className="text-xs text-charcoal-200 space-y-3 leading-relaxed">
+        {/* Contact */}
+        <div className="space-y-3">
+          <h4 className="label-caps text-ink-500">The Galle Studio</h4>
+          <div className="font-ui text-xs text-ink-400 space-y-2.5 leading-relaxed">
+            <p>No.470/B, Matara Rd, Dowata,<br />Galle, Sri Lanka 80000</p>
             <p>
-              No.470/B, Matara Rd, Dowata,<br />
-              Galle, Sri Lanka 80000
+              <a href="https://wa.me/94769410682" className="hover:text-terra-400 transition-colors">
+                +94 76 941 0682
+              </a>
             </p>
             <p>
-              <strong>Phone/WhatsApp:</strong> <br />
-              <a href="https://wa.me/94769410682" className="text-gold-300 hover:text-gold-200">+94 76 941 0682</a>
-            </p>
-            <p>
-              <strong>Email:</strong> <br />
-              <a href="mailto:lunoracandles.info@gmail.com" className="text-gold-300 hover:text-gold-200">lunoracandles.info@gmail.com</a>
+              <a href="mailto:lunoracandles.info@gmail.com" className="hover:text-terra-400 transition-colors">
+                lunoracandles.info@gmail.com
+              </a>
             </p>
           </div>
         </div>
-
       </div>
 
-      {/* Copyright & Legal Links */}
-      <div className="border-t border-charcoal-600 bg-charcoal-700 py-6">
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] font-ui text-charcoal-300 uppercase tracking-widest">
-          <span>&copy; {currentYear} Lunora Candles Sri Lanka. All Rights Reserved.</span>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-gold-300">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-gold-300">Terms of Service</Link>
+      {/* Bottom bar */}
+      <div className="border-t border-sand-200 py-5">
+        <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+          <span className="label-caps">
+            © {year} Lunora Candles Sri Lanka. All Rights Reserved.
+          </span>
+          <div className="flex gap-5">
+            <Link href="/privacy" className="label-caps hover:text-terra-400 transition-colors">Privacy</Link>
+            <Link href="/terms"   className="label-caps hover:text-terra-400 transition-colors">Terms</Link>
           </div>
         </div>
       </div>

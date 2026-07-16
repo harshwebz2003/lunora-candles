@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-interface ShopFiltersProps {
+export interface ShopFiltersProps {
   initialSearch: string;
   initialFragrance: string;
   initialSort: string;
@@ -28,66 +28,60 @@ export default function ShopFilters({
   };
 
   return (
-    <div className="bg-white border border-cream-200 rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center justify-between shadow-sm">
+    <div className="flex flex-col sm:flex-row gap-4 items-center">
       
-      {/* Search Form */}
+      {/* Search */}
       <form 
         onSubmit={(e) => {
           e.preventDefault();
           const formData = new FormData(e.currentTarget);
-          const searchVal = formData.get('search') as string;
-          handleFilterChange('search', searchVal);
+          handleFilterChange('search', formData.get('search') as string);
         }}
-        className="w-full md:w-auto flex-grow max-w-md flex gap-2"
+        className="flex gap-2 flex-1 max-w-sm"
       >
         <input
           type="text"
           name="search"
           defaultValue={initialSearch}
           placeholder="Search candles..."
-          className="input text-xs"
+          className="input text-sm flex-1"
         />
-        <button type="submit" className="btn btn-primary py-2 px-6 text-xs tracking-widest uppercase">
+        <button type="submit" className="btn btn-outline px-5 py-2 text-xs">
           Search
         </button>
       </form>
 
-      {/* Filters Selectors */}
-      <div className="w-full md:w-auto flex flex-wrap gap-4 items-center justify-end">
-        {/* Fragrance Select */}
-        <div className="flex items-center gap-2">
-          <span className="text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold">Fragrance:</span>
+      <div className="flex flex-wrap gap-3 items-center">
+        {/* Fragrance */}
+        {fragrancesList.length > 0 && (
           <select
-            className="input text-xs py-2 px-3 pr-8 min-w-[140px] bg-cream-50"
+            className="input text-xs py-2 px-3 pr-8 min-w-[140px] bg-sand-50"
             onChange={(e) => handleFilterChange('fragrance', e.target.value)}
-            value={initialFragrance}
+            defaultValue={initialFragrance}
           >
             <option value="">All Scents</option>
             {fragrancesList.map((frag) => (
               <option key={frag} value={frag}>{frag}</option>
             ))}
           </select>
-        </div>
+        )}
 
-        {/* Sort Select */}
-        <div className="flex items-center gap-2">
-          <span className="text-[10px] font-ui uppercase tracking-wider text-charcoal-400 font-bold">Sort:</span>
-          <select
-            className="input text-xs py-2 px-3 pr-8 min-w-[140px] bg-cream-50"
-            onChange={(e) => handleFilterChange('sort', e.target.value)}
-            value={initialSort}
-          >
-            <option value="">Default (Newest)</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-            <option value="name-asc">Name: A to Z</option>
-            <option value="name-desc">Name: Z to A</option>
-          </select>
-        </div>
+        {/* Sort */}
+        <select
+          className="input text-xs py-2 px-3 pr-8 min-w-[140px] bg-sand-50"
+          onChange={(e) => handleFilterChange('sort', e.target.value)}
+          defaultValue={initialSort}
+        >
+          <option value="">Default</option>
+          <option value="price-asc">Price: Low → High</option>
+          <option value="price-desc">Price: High → Low</option>
+          <option value="name-asc">Name: A → Z</option>
+          <option value="name-desc">Name: Z → A</option>
+        </select>
 
         {(initialSearch || initialFragrance || initialSort) && (
-          <Link href="/shop" className="text-xs text-rose-400 hover:text-rose-500 font-ui font-semibold uppercase tracking-wider py-2">
-            Clear All
+          <Link href="/shop" className="label-caps text-terra-400 hover:text-terra-500 transition-colors py-2">
+            Clear
           </Link>
         )}
       </div>

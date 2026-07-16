@@ -30,9 +30,13 @@ export function AddToCartButton({
   return (
     <button
       onClick={handleAdd}
-      className={`w-full btn ${added ? 'bg-sage-400 text-white border-sage-400' : 'btn-primary'} py-2.5 text-xs tracking-widest uppercase transition-all`}
+      className={`w-full btn text-[10px] tracking-[0.18em] py-2 ${
+        added
+          ? 'bg-sage-400 text-white border-sage-400'
+          : 'btn-outline text-ink-500 border-sand-300 hover:bg-ink-600 hover:text-white hover:border-ink-600'
+      } transition-all`}
     >
-      {added ? '✓ Added to Cart' : 'Add to Cart'}
+      {added ? '✓ Added' : 'Add to Cart'}
     </button>
   );
 }
