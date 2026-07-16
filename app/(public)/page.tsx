@@ -153,7 +153,7 @@ export default async function HomePage() {
           {products.map((product, idx) => {
             const primaryImage = product.images[0]?.url || '/assets/552807669_1339286778208115_6571929007844017528_n.jpg';
             return (
-              <ScrollReveal key={product.id} delay={0.15 * (idx + 1)}>
+              <ScrollReveal key={product.id} delay={0.15 * (idx + 1)} className="h-full flex flex-col">
                 <div className="card flex flex-col justify-between group h-full">
                   <div>
                     <Link href={`/products/${product.slug}`} className="relative block aspect-square overflow-hidden bg-cream-100">
@@ -242,7 +242,7 @@ export default async function HomePage() {
       {/* 5. Client Component testimonial and care widget */}
       <section className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Testimonials */}
-        <ScrollReveal direction="left" delay={0.15} className="h-full">
+        <ScrollReveal direction="left" delay={0.15} className="h-full flex flex-col">
           <div className="bg-white border border-cream-200 p-8 sm:p-12 rounded-2xl flex flex-col justify-between h-full gap-8">
             <div className="space-y-2">
               <h3 className="text-display text-2xl sm:text-3xl text-charcoal-700">What Our Customers Say</h3>
@@ -255,7 +255,7 @@ export default async function HomePage() {
         </ScrollReveal>
 
         {/* Quick Candle Care Interactive Tip */}
-        <ScrollReveal direction="right" delay={0.3} className="h-full">
+        <ScrollReveal direction="right" delay={0.3} className="h-full flex flex-col">
           <div className="bg-charcoal-700 text-white p-8 sm:p-12 rounded-2xl flex flex-col justify-between h-full gap-8">
             <div className="space-y-6">
               <span className="font-ui text-xs font-bold uppercase tracking-[0.3em] text-gold-200">
@@ -295,7 +295,7 @@ export default async function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {blogs.map((blog, idx) => (
-            <ScrollReveal key={blog.id} delay={0.2 * (idx + 1)} direction={idx === 0 ? 'left' : 'right'}>
+            <ScrollReveal key={blog.id} delay={0.2 * (idx + 1)} direction={idx === 0 ? 'left' : 'right'} className="h-full flex flex-col">
               <div className="bg-white border border-cream-200 rounded-2xl overflow-hidden p-6 sm:p-8 flex flex-col justify-between group h-full">
                 <div className="space-y-4">
                   <span className="text-[10px] font-ui uppercase tracking-wider text-gold-400 font-bold">
