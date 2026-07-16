@@ -242,21 +242,21 @@ export default async function HomePage() {
       {/* 5. Client Component testimonial and care widget */}
       <section className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Testimonials */}
-        <ScrollReveal direction="left" delay={0.15}>
-          <div className="bg-white border border-cream-200 p-8 sm:p-12 rounded-2xl flex flex-col justify-between h-full">
-            <div className="space-y-4">
+        <ScrollReveal direction="left" delay={0.15} className="h-full">
+          <div className="bg-white border border-cream-200 p-8 sm:p-12 rounded-2xl flex flex-col justify-between h-full gap-8">
+            <div className="space-y-2">
               <h3 className="text-display text-2xl sm:text-3xl text-charcoal-700">What Our Customers Say</h3>
               <p className="text-[10px] font-ui uppercase tracking-wider text-gold-400">Genuine customer reviews</p>
               <div className="divider-gold mx-0" />
-              
-              <TestimonialsSlider testimonials={testimonials} />
             </div>
+            
+            <TestimonialsSlider testimonials={testimonials} />
           </div>
         </ScrollReveal>
 
         {/* Quick Candle Care Interactive Tip */}
-        <ScrollReveal direction="right" delay={0.3}>
-          <div className="bg-charcoal-700 text-white p-8 sm:p-12 rounded-2xl flex flex-col justify-between h-full">
+        <ScrollReveal direction="right" delay={0.3} className="h-full">
+          <div className="bg-charcoal-700 text-white p-8 sm:p-12 rounded-2xl flex flex-col justify-between h-full gap-8">
             <div className="space-y-6">
               <span className="font-ui text-xs font-bold uppercase tracking-[0.3em] text-gold-200">
                 Interactive Guide

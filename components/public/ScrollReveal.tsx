@@ -7,12 +7,14 @@ interface ScrollRevealProps {
   children: React.ReactNode;
   delay?: number;
   direction?: 'up' | 'down' | 'left' | 'right' | 'none';
+  className?: string;
 }
 
 export default function ScrollReveal({
   children,
   delay = 0,
   direction = 'up',
+  className = '',
 }: ScrollRevealProps) {
   const getInitial = () => {
     switch (direction) {
@@ -47,6 +49,7 @@ export default function ScrollReveal({
         ease: [0.16, 1, 0.3, 1], // Luxury cubic ease
         delay,
       }}
+      className={className}
     >
       {children}
     </motion.div>
